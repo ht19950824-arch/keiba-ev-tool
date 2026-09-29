@@ -23,3 +23,5 @@ def discover(year:int,out:Path,sleep:float=.15):
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("--year",type=int,required=True); ap.add_argument("--out",default="data/processed"); ap.add_argument("--sleep",type=float,default=.15)
     a=ap.parse_args(); print(f"discovered={len(discover(a.year,Path(a.out)/f'jra_{a.year}_pdfs.json',a.sleep))}")
+
+# annual index optimization will be applied after the current queued run
