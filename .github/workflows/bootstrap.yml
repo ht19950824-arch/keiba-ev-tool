@@ -1,0 +1,54 @@
+name: bootstrap-keiba-history
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/bootstrap.yml']
+permissions: {contents: write}
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        year: [2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements.txt
+      - run: python scripts/discover_jra_pdfs.py --year ${{ matrix.year }} --sleep 0.15
+      - run: python scripts/download_jra_pdfs.py --year ${{ matrix.year }} --index-dir data/processed --out data/raw --sleep 0.15
+      - run: python scripts/ingest_pdfs.py --year ${{ matrix.year }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: processed-${{ matrix.year }}
+          path: |
+            data/processed/runners_${{ matrix.year }}.parquet
+            data/processed/jra_${{ matrix.year }}_pdfs.json
+          retention-days: 7
+  assemble:
+    needs: collect
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: processed-*
+          path: data/processed
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements.txt
+      - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bootstrap-model
+          path: data/processed/model
+          retention-days: 7
+      - name: Commit processed history and web data
+        run: |
+          git config user.name keiba-ev-bot
+          git config user.email actions@users.noreply.github.com
+          git add data/processed/*.parquet data/processed/jra_*_pdfs.json web/data
+          git diff --cached --quiet || git commit -m "bootstrap JRA history and walk-forward results"
+          git push
