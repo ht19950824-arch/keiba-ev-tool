@@ -15,7 +15,7 @@ jobs:
       - name: Update current-year data
         run: |
           YEAR=$(date -u +%Y)
-          python scripts/collect_current_entries.py --out data/processed/current_entry_links.json
+          python scripts/collect_current_entries.py --out data/processed/current_entries.json
           python scripts/discover_jra_pdfs.py --year "$YEAR" --sleep 0.15
           python scripts/download_jra_pdfs.py --year "$YEAR" --index-dir data/processed --out data/raw --sleep 0.15
           python scripts/ingest_pdfs.py --year "$YEAR"
@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name keiba-ev-bot
           git config user.email actions@users.noreply.github.com
-          git add data/processed/current_entry_links.json data/processed/jra_*_pdfs.json data/processed/backtest_*.json web/data
+          git add data/processed/current_entries.json data/processed/current_entry_links.json data/processed/jra_*_pdfs.json data/processed/backtest_*.json web/data
           git diff --cached --quiet || git commit -m "update JRA data and model results"
           git push
