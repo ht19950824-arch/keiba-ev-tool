@@ -4,6 +4,5 @@ __pycache__/
 *.pyc
 data/raw/*.pdf
 data/raw/**/*.pdf
-data/processed/*.parquet
+data/processed/model/
 data/processed/*.sqlite
-data/processed/*.joblib
