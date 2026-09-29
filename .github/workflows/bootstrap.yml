@@ -39,7 +39,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -r requirements.txt
+      - run: python scripts/collect_current_entries.py --out data/processed/current_entries.json
       - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+      - run: python scripts/predict_current.py --entries data/processed/current_entries.json --model data/processed/model/model.joblib --history-glob "data/processed/runners_*.parquet" --out web/data/current_predictions.json
       - uses: actions/upload-artifact@v4
         with:
           name: bootstrap-model
@@ -49,6 +51,6 @@ jobs:
         run: |
           git config user.name keiba-ev-bot
           git config user.email actions@users.noreply.github.com
-          git add data/processed/*.parquet data/processed/jra_*_pdfs.json web/data
+          git add data/processed/*.parquet data/processed/jra_*_pdfs.json data/processed/current_entries.json web/data
           git diff --cached --quiet || git commit -m "bootstrap JRA history and walk-forward results"
           git push
