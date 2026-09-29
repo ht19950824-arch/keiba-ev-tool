@@ -5,6 +5,9 @@ on:
   push:
     paths: ['.github/workflows/bootstrap.yml']
 permissions: {contents: write}
+concurrency:
+  group: keiba-bootstrap
+  cancel-in-progress: true
 jobs:
   collect:
     runs-on: ubuntu-latest
