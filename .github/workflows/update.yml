@@ -24,6 +24,7 @@ jobs:
           YEAR=$(date -u +%Y)
           if [ -f "data/processed/runners_$YEAR.parquet" ]; then
             python scripts/train_walkforward.py --test-year "$YEAR" --public-dir web/data
+            python scripts/predict_current.py --entries data/processed/current_entries.json --model data/processed/model/model.joblib --history-glob "data/processed/runners_*.parquet" --out web/data/current_predictions.json
           fi
       - name: Commit derived data
         run: |
