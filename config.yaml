@@ -1,0 +1,13 @@
+project:
+  name: "中央競馬 期待値分析"
+  source: "JRA official only"
+  jravan: false
+  years: {start: 2017, end: 2026}
+  min_ev: 1.10
+  min_odds: 3.0
+  max_odds: 100.0
+jra:
+  report_index_url: "https://www.jra.go.jp/datafile/seiseki/report/{year}.html"
+model:
+  random_state: 42
+  min_train_rows: 5000
