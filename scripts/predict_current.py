@@ -7,8 +7,9 @@ from joblib import load
 from app.model import predict
 def flatten_current(path):
     raw=json.loads(path.read_text(encoding="utf-8")); rows=[]
-    for race in raw.get("races",[]):
-        meta=race.get("meta",{})
+    for idx,race in enumerate(raw.get("races",[])):
+        meta=race.get("meta",{}).copy()
+        meta["race_key"]=f"{meta.get('race_date','unknown')}-{meta.get('course','unknown')}-{meta.get('meeting_no','unknown')}-{meta.get('race_no',idx)}"
         for row in race.get("rows",[]):
             name=next((v for k,v in row.items() if "馬名" in k),None)
             if name: rows.append({**row,**meta,"race_label":race.get("label","")})
