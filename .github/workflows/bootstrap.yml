@@ -1,4 +1,5 @@
 name: bootstrap-keiba-history
+# Re-run bootstrap after data pipeline fixes
 on:
   workflow_dispatch:
   push:
