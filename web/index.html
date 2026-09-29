@@ -1,1 +1,39 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中央競馬 期待値分析</title><style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;background:#f5f6f8;color:#111827}main{max-width:720px;margin:auto;padding:18px}.card{background:white;border-radius:18px;padding:18px;margin:12px 0}button{padding:12px 16px;border:0;border-radius:12px;background:#111827;color:white}</style></head><body><main><div class="card"><h1>中央競馬 期待値分析</h1><p>JRA-VAN不使用 / JRA公式データ基盤</p><button onclick="load()">状態を更新</button><pre id="s">確認中…</pre></div></main><script>async function load(){const r=await fetch('/api/status');document.querySelector('#s').textContent=JSON.stringify(await r.json(),null,2)}load()</script></body></html>
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111827"><link rel="manifest" href="./manifest.json"><title>中央競馬 EV分析</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;color:#111827;background:#f3f4f6}
+body{margin:0}.wrap{max-width:760px;margin:auto;padding:16px 14px 40px}.hero{background:#111827;color:white;border-radius:22px;padding:20px 18px}.hero h1{font-size:24px;margin:0 0 6px}.muted{opacity:.72;font-size:12px}
+.controls{display:flex;gap:8px;margin:12px 0}.controls select,.controls button{flex:1;padding:12px;border:1px solid #d1d5db;border-radius:12px;background:white}
+.card{background:white;border-radius:18px;padding:15px;margin:10px 0;box-shadow:0 1px 5px #0000000b}.racehead{display:flex;justify-content:space-between;gap:8px}.racehead h2{font-size:16px;margin:0}.tag{font-size:11px;padding:4px 8px;border-radius:99px;background:#eef2ff}.horse{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid #eee}.horse:first-of-type{border-top:0}.num{font-weight:700}.ev{font-size:18px;font-weight:800}.sub{font-size:12px;color:#6b7280}.empty{text-align:center;padding:35px 10px;color:#6b7280}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stat{background:#f9fafb;border-radius:12px;padding:10px}.stat b{display:block;font-size:18px}
+</style></head>
+<body><div class="wrap"><section class="hero"><h1>中央競馬 EV分析</h1><div>JRA公式データ / JRA-VAN不使用</div><div id="updated" class="muted">データ確認中…</div></section>
+<div class="controls"><select id="filter"><option value="all">全レース</option><option value="value">EV 1.20以上</option><option value="long">単勝10倍以上</option></select><button onclick="loadData()">更新</button></div>
+<div id="stats" class="card"></div><div id="list"></div></div>
+<script>
+let rows=[];
+async function loadData(){
+ try{
+  const [p,b]=await Promise.all([fetch("./data/current_predictions.json?x="+Date.now()).then(r=>r.json()),fetch("./data/backtest_current.json?x="+Date.now()).then(r=>r.json())]);
+  rows=Array.isArray(p)?p:[];
+  document.querySelector("#updated").textContent="自動更新データ";
+  const bets=b.bets??0, roi=b.roi;
+  document.querySelector("#stats").innerHTML='<div class="stats"><div class="stat">検証ベット数<b>'+bets+'</b></div><div class="stat">検証ROI<b>'+(Number.isFinite(roi)?(roi*100).toFixed(1)+'%':'-')+'</b></div></div><div class="sub" style="margin-top:8px">過去検証値であり、将来の収益を保証するものではありません。</div>';
+  render();
+ }catch(e){document.querySelector("#list").innerHTML='<div class="card empty">データをまだ取得できません。</div>'}
+}
+function render(){
+ const f=document.querySelector("#filter").value;
+ let x=rows.filter(r=>f==="value"?Number(r.expected_value)>=1.2:f==="long"?Number(r.odds)>=10:true);
+ x.sort((a,b)=>Number(b.expected_value||0)-Number(a.expected_value||0));
+ const groups={};
+ for(const r of x){(groups[r.race_key]??=[]).push(r)}
+ const keys=Object.keys(groups);
+ if(!keys.length){document.querySelector("#list").innerHTML='<div class="card empty">条件に一致するデータがありません。</div>';return}
+ document.querySelector("#list").innerHTML=keys.slice(0,40).map(k=>{
+  const g=groups[k], first=g[0];
+  return '<section class="card"><div class="racehead"><h2>'+first.race_key+'</h2><span class="tag">'+g.length+'頭</span></div>'+g.slice(0,8).map(r=>'<div class="horse"><div class="num">'+r.post+'</div><div><b>'+r.horse+'</b><div class="sub">単勝 '+(r.odds??'-')+' / 公正 '+(r.fair_odds?Number(r.fair_odds).toFixed(1):'-')+'</div></div><div class="ev">'+(r.expected_value?Number(r.expected_value).toFixed(2):'-')+'</div></div>').join('')+'</section>'
+ }).join("");
+}
+document.querySelector("#filter").addEventListener("change",render);loadData();
+if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
+</script></body></html>
