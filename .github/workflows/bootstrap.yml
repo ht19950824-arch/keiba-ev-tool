@@ -129,4 +129,5 @@ jobs:
           git config user.email actions@users.noreply.github.com
           git add data/processed/*.parquet data/processed/jra_*_pdfs.json data/processed/current_entries.json web/data
           git diff --cached --quiet || git commit -m "bootstrap JRA history and walk-forward results"
+          git pull --rebase origin main
           git push
