@@ -13,6 +13,8 @@ def norm(s: str) -> str:
     # JRA PDFs can encode ASCII digits as pdfminer CID markers. In these
     # result PDFs the digit glyphs are 9872..9881 => 0..9.
     s = re.sub(r"\(cid:(987[2-9]|988[0-1])\)", lambda m: str(int(m.group(1)) - 9872), s)
+    # Other CID markers are layout/annotation glyphs, not data digits.
+    s = re.sub(r"\(cid:\d+\)", " ", s)
     return s.translate(JP_NUM).replace("\u3000", " ").strip()
 
 def num(s: str | None) -> float | None:
@@ -23,7 +25,7 @@ def num(s: str | None) -> float | None:
 
 def extract_text(path: str | Path) -> str:
     with pdfplumber.open(path) as pdf:
-        return "\n".join(page.extract_text() or "" for page in pdf.pages)
+        return "\n".join(page.extract_text(layout=True) or "" for page in pdf.pages)
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
     line = line.strip()
@@ -45,7 +47,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not tm:
         return None
     prefix = before[:tm.start()].strip()
-    wm = re.search(r"(?P<hw>\d{3})(?P<diff>[＋+－−±-](?:\s*\d{1,2})?)?$", prefix)
+    wm = re.search(r"(?P<hw>\d{3})(?P<diff>[＋+－−±-―ー](?:\s*\d{1,2})?)?$", prefix)
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
