@@ -38,7 +38,7 @@ def add_historical_features(df):
     for name,keys in {"jockey_win_rate":["jockey"],"trainer_win_rate":["trainer"],"course_win_rate":["course"],"distance_win_rate":["distance"],"surface_win_rate":["surface"],"condition_win_rate":["track_condition"],"course_distance_win_rate":["course","distance"]}.items():
         x[name]=_prior_rate(x,keys,"win",1,19) if all(k in x.columns for k in keys) else 0.05
     x["post_pct"]=(x["post"]-1)/x["field_size"].clip(lower=2)
-    x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2)
+    x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2) if "bracket" in x.columns else np.nan
     x["odds"]=pd.to_numeric(x.get("odds"),errors="coerce")
     x["market_prob"]=1/x["odds"].clip(lower=1.01)
     return x
