@@ -60,3 +60,20 @@ def test_predraw_missing_meeting_no_is_safe():
     }])
     out = build_current(current, history)
     assert out.loc[0, "meeting_no"] == "unknown"
+
+
+def test_current_prediction_rates_exclude_current_and_future_dates():
+    current = pd.DataFrame([{
+        "馬名": "テストホース", "性齢": "牡4", "負担重量": "57", "騎手": "J1",
+        "調教師": "T1", "単勝オッズ": "5.0", "race_date": "2026-10-04",
+        "course": "東京", "distance": 1800, "surface": "芝", "track_condition": "良",
+        "race_no": 11, "meeting_no": 4,
+    }])
+    history = pd.DataFrame([
+        {"race_date":"2026-09-20","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J0","trainer":"T0"},
+        {"race_date":"2026-10-04","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J1","trainer":"T1"},
+        {"race_date":"2026-10-05","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J1","trainer":"T1"},
+    ])
+    out = build_current(current, history)
+    # Only the 2026-09-20 result is prior information; current/future outcomes must not affect the rate.
+    assert abs(out.loc[0, "trainer_win_rate"] - (1+1)/(1+20)) < 1e-9
