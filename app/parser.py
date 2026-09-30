@@ -30,14 +30,14 @@ def extract_text(path: str | Path) -> str:
 
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
-    line = norm(line)
+    line = norm(line).rstrip()
     m = re.match(r"^(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
     body = m.group("body")
     sm = re.search(
         r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s+"
-        r"(?P<weight>\d{2}(?:\.\d+)?)\s+",
+        r"(?P<weight>\d{2}(?:\.\d+)?)\s*",
         body,
     )
     if not sm:
