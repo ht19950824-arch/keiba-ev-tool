@@ -17,8 +17,8 @@ async function loadData(){
   rows=Array.isArray(p)?p:[];
   if(e.status!=="published") rows=[];
   const fetched=e.fetched_at?new Date(e.fetched_at).toLocaleString("ja-JP"):"未取得"; const state=e.status==="published"?"出馬表取得済み":"出馬表公開待ち／未取得"; document.querySelector("#updated").textContent=state+" ・ 最終確認 "+fetched;
-  const bets=b.bets??0, roi=b.roi;
-  document.querySelector("#stats").innerHTML='<div class="stats"><div class="stat">検証ベット数<b>'+bets+'</b></div><div class="stat">検証ROI<b>'+(Number.isFinite(roi)?(roi*100).toFixed(1)+'%':'-')+'</b></div></div><div class="sub" style="margin-top:8px">過去検証値であり、将来の収益を保証するものではありません。</div>';
+  const bets=b.bets??0, roi=b.roi, warning=b.quality_warning;
+  document.querySelector("#stats").innerHTML='<div class="stats"><div class="stat">検証ベット数<b>'+bets+'</b></div><div class="stat">検証ROI<b>'+(Number.isFinite(roi)?(roi*100).toFixed(1)+'%':'-')+'</b></div></div><div class="sub" style="margin-top:8px">過去検証値であり、将来の収益を保証するものではありません。'+(warning?'<br><b>検証データ要確認：</b>市場想定勝率と大きく乖離しています。':'')+'</div>';
   render();
  }catch(e){document.querySelector("#list").innerHTML='<div class="card empty">データをまだ取得できません。</div>'}
 }
