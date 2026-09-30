@@ -13,7 +13,7 @@ def ingest_year(year,raw,processed,db):
     for pdf in sorted((raw/str(year)).glob("*.pdf")):
         try: rows.extend(parse_pdf(pdf))
         except Exception as e: print(f"WARN {pdf}: {e}")
-    if not rows: con.close(); return 0
+    if not rows:\n        con.close()\n        raise RuntimeError(f"No runner rows parsed for year {year}")
     raw_df=pd.DataFrame(rows)
     raw_df=raw_df.drop_duplicates(["race_key","post"],keep="first").reset_index(drop=True)
     df=compute_track_bias(add_features(raw_df))
