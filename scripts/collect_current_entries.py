@@ -22,6 +22,23 @@ def links_from_homepage(session):
     for a in soup.select('a[href*="accessD.html?CNAME="]'):
         add(a.get("href",""), a.get_text(" ",strip=True))
 
+    # Follow JRA's public "this week's races" / entry-table pages as a fallback.
+    for a in soup.select('a[href]'):
+        href=urljoin(BASE,a.get("href",""))
+        if "/keiba/race/" in href and "syutsuba.html" in href:
+            try:
+                pr=session.get(href,headers={"User-Agent":UA},timeout=30)
+                if pr.ok:
+                    psoup=BeautifulSoup(pr.text,"html.parser")
+                    for link in psoup.select('a[href]'):
+                        h=link.get("href","")
+                        if "accessD.html?CNAME=" in h:
+                            add(h,link.get_text(" ",strip=True))
+                    for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I):
+                        add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
+            except Exception as e:
+                print(f"WARN syutsuba-page {href}: {e}")
+
     # Also follow JRA race/entry pages when the homepage does not expose accessD links directly.
     # These pages can contain the current accessD URLs after publication.
     page_links=[]
