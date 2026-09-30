@@ -5,6 +5,9 @@ on:
   push:
     paths: ['.github/workflows/bootstrap.yml']
 permissions: {contents: write}
+
+env:
+  PYTHONPATH: ${{ github.workspace }}
 concurrency:
   group: keiba-bootstrap
   cancel-in-progress: true
