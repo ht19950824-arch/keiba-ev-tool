@@ -19,8 +19,8 @@ env:
   PYTHONPATH: ${{ github.workspace }}
 
 concurrency:
-  group: keiba-bootstrap-final
-  cancel-in-progress: true
+  group: keiba-data-publish
+  cancel-in-progress: false
 
 jobs:
   collect:
