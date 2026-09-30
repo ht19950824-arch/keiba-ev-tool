@@ -17,7 +17,7 @@ def ingest_year(year,raw,processed,db):
     df=compute_track_bias(add_features(pd.DataFrame(rows)))
     race_cols=["race_key","race_date","course","meeting_no","race_no","surface","distance","track_condition","field_size"]
     races=df[race_cols].drop_duplicates("race_key")
-    drop_cols=["race_date","course","meeting_no","race_no","surface","distance","track_condition","field_size"]
+    drop_cols=["race_date","course","meeting_no","day_no","race_no","surface","distance","track_condition","field_size"]
     runners=df.drop(columns=[c for c in drop_cols if c in df.columns]).copy()
     for y in sorted(pd.to_datetime(df["race_date"]).dt.year.dropna().unique().tolist()):
         con.execute("DELETE FROM runners WHERE race_key IN (SELECT race_key FROM races WHERE substr(race_date,1,4)=?)",(str(int(y)),))
