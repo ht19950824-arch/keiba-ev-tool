@@ -15,3 +15,11 @@ def test_parse_jra_sample():
     assert rows[0]["horse_weight_diff"]==-6
     assert rows[0]["finish"]==1
     assert rows[0]["odds"]==3.6
+
+
+def test_parse_pdfplumber_control_markers():
+    text='''20049 8月 8日 晴良 （2026年2中京） 第5日 第1競走 2歳未勝利 1，600ｍ\n発走 9時50分 （芝・左）\n8 9 ジーティーキャリー 牝2鹿 55 西村 淳也 田畑 利彦氏 松下 武士 安平 ノーザンファーム 466±0 1：34．4 1．4\\x03\n'''
+    rows=parse_text(text)
+    assert len(rows)==1
+    assert rows[0]["horse"]=="ジーティーキャリー"
+    assert rows[0]["odds"]==1.4
