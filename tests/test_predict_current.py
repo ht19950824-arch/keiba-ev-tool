@@ -70,7 +70,7 @@ def test_current_prediction_rates_exclude_current_and_future_dates():
         "race_no": 11, "meeting_no": 4,
     }])
     history = pd.DataFrame([
-        {"race_date":"2026-09-20","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J0","trainer":"T0"},
+        {"race_date":"2026-09-20","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J1","trainer":"T1"},
         {"race_date":"2026-10-04","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J1","trainer":"T1"},
         {"race_date":"2026-10-05","horse":"X","finish":1,"course":"東京","distance":1800,"surface":"芝","track_condition":"良","jockey":"J1","trainer":"T1"},
     ])
