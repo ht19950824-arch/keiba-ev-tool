@@ -5,7 +5,7 @@ on:
   schedule:
     # JRA current entry publication is checked frequently on Thursdays.
     # 09:00-18:00 JST = 00:00-09:00 UTC.
-    - cron: "*/30 0-9 * * 4"
+    - cron: "*/30 0-12 * * 4"
   push:
     paths:
       - ".github/workflows/refresh-current.yml"
@@ -52,10 +52,24 @@ jobs:
         if: steps.gate.outputs.published == 'true'
         run: |
           python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+          test -f data/processed/model/model.joblib
           python scripts/predict_current.py             --entries data/processed/current_entries.json             --model data/processed/model/model.joblib             --history-glob "data/processed/runners_*.parquet"             --out web/data/current_predictions.json
       - name: Keep public data empty before publication
         if: steps.gate.outputs.published != 'true'
         run: echo '[]' > web/data/current_predictions.json
+      - name: Validate generated prediction JSON
+        if: steps.gate.outputs.published == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open("web/data/current_predictions.json",encoding="utf-8"))
+          assert isinstance(p,list) and p, "published entries produced no predictions"
+          for r in p:
+              assert r.get("horse") and r.get("race_key")
+              assert 0 <= float(r["model_win_prob"]) <= 1
+              assert float(r["odds"]) > 0
+          print("validated",len(p),"predictions")
+          PY
       - name: Publish refreshed data
         run: |
           git config user.name keiba-ev-bot
