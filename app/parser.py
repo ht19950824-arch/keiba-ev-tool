@@ -66,34 +66,75 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
 
 def parse_text(text: str) -> list[dict[str, Any]]:
     text = norm(text)
-    chunks = re.split(r"(?=\b\d{5}\s+\d+月\s*\d+日)", text)
-    rows = []
+    chunks = re.split(r"(?=\d{5}\s+\d+月\s*\d+日)", text)
+    rows: list[dict[str, Any]] = []
     for chunk in chunks:
-        hm = re.search(
-            r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?"
-            r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s*"
-            r"第\d+日\s+第(?P<raceno>\d+)競走.*?"
-            r"(?P<distance>[\d,]{3,5})\s*[^\d\n]{0,4}\n",
-            chunk,
-            re.S,
-        )
-        if not hm:
+        lines = chunk.splitlines()
+        if not lines:
             continue
+
+        header = re.search(
+            r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?"
+            r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s+"
+            r"第(?P<day_no>\d+)日\s+第(?P<raceno>\d+)競走",
+            lines[0],
+        )
+        if not header:
+            # Some PDF extractors wrap the race header; search a short prefix.
+            header = re.search(
+                r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?"
+                r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s+"
+                r"第(?P<day_no>\d+)日\s+第(?P<raceno>\d+)競走",
+                "\n".join(lines[:8]),
+                re.S,
+            )
+        if not header:
+            continue
+
+        prefix = "\n".join(lines[:12])
+        dm = re.search(r"(?P<distance>\d{3,5})\s*[\x00-\x1f\uFFFD]?\s*$", prefix.split("発走", 1)[0])
+        if not dm:
+            # Distance is normally the last number on the race-title line.
+            dm = re.search(r"(?P<distance>\d{3,5})\s*[\x00-\x1f\uFFFD]?(?:\n|$)", prefix)
+        if not dm:
+            continue
+
+        first = "\n".join(lines[:20])
+        if "（ダート" in first:
+            surface = "ダート"
+        elif "（芝" in first:
+            surface = "芝"
+        else:
+            surface = "障害"
+
+        if "不良" in first:
+            condition = "不良"
+        elif "稍重" in first:
+            condition = "稍重"
+        elif re.search(r"\n重\s*\n", first):
+            condition = "重"
+        else:
+            condition = "良"
+
         race = {
-            "race_key": f"{hm.group('year')}-{hm.group('course')}-{hm.group('meeting')}-{hm.group('raceid')}",
-            "race_date": f"{hm.group('year')}-{int(hm.group('month')):02d}-{int(hm.group('day')):02d}",
-            "course": hm.group("course"), "meeting_no": hm.group("meeting"),
-            "race_no": int(hm.group("raceno")),
-            "distance": int(hm.group("distance").replace(",","")),
-            "surface": "ダート" if "（ダート" in chunk[:1800] else ("芝" if "（芝" in chunk[:1800] else "障害"),
-            "track_condition": "不良" if "不良" in chunk[:1800] else ("稍重" if "稍重" in chunk[:1800] else ("重" if re.search(r"\n重\s*\n",chunk[:1800]) else "良")),
+            "race_key": f"{header.group('year')}-{header.group('course')}-{header.group('meeting')}-{header.group('raceid')}",
+            "race_date": f"{header.group('year')}-{int(header.group('month')):02d}-{int(header.group('day')):02d}",
+            "course": header.group("course"),
+            "meeting_no": header.group("meeting"),
+            "day_no": int(header.group("day_no")),
+            "race_no": int(header.group("raceno")),
+            "distance": int(dm.group("distance").replace(",", "")),
+            "surface": surface,
+            "track_condition": condition,
         }
-        runners=[]
-        for line in chunk.split("売得金",1)[0].splitlines():
-            p=_parse_runner_line(line)
-            if p: runners.append({**race,**p})
-        for finish,row in enumerate(runners,1):
-            row["finish"]=finish
+
+        runners: list[dict[str, Any]] = []
+        for line in chunk.split("売得金", 1)[0].splitlines():
+            p = _parse_runner_line(line)
+            if p:
+                runners.append({**race, **p})
+        for finish, row in enumerate(runners, 1):
+            row["finish"] = finish
             rows.append(row)
     return rows
 
