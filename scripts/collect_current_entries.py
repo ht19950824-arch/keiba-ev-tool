@@ -38,7 +38,7 @@ def links_from_homepage(session):
 
     # Directly probe the current week's public entry pages for the two Sunday feature pages.
     # JRA may expose these pages without linking them from the homepage navigation.
-    for direct in ("/keiba/race/082/syutsuba.html","/keiba/race/083/syutsuba.html","/keiba/race/084/syutsuba.html","/keiba/race/085/syutsuba.html","/keiba/race/086/syutsuba.html","/keiba/race/087/syutsuba.html","/keiba/race/088/syutsuba.html","/keiba/race/089/syutsuba.html","/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
+    for direct in ("/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
         href=urljoin(BASE,direct)
         try:
             pr=session.get(href,headers={"User-Agent":UA},timeout=30)
@@ -131,8 +131,30 @@ def parse_page(session,url):
     soup=BeautifulSoup(r.text,"html.parser"); page_text=soup.get_text(" ",strip=True)
     tables=pd.read_html(r.text); target=None
     for t in tables:
+        # JRA entry tables can be emitted as a MultiIndex. Flatten every
+        # column before matching so publication-time layout changes do not
+        # make the collector silently return zero races.
+        if hasattr(t.columns, "levels"):
+            flat=[]
+            for col in t.columns:
+                parts=[str(v).strip() for v in (col if isinstance(col, tuple) else (col,)) if str(v).strip() not in ("","nan")]
+                flat.append(" ".join(parts))
+            t=t.copy(); t.columns=flat
         cols=" ".join(str(c) for c in t.columns)
-        if "馬名" in cols and "騎手" in cols: target=t; break
+        if "馬名" in cols and "騎手" in cols:
+            target=t
+            break
+    if target is None:
+        # Last-resort DOM table parsing: some JRA layouts expose the labels
+        # in nested headers that pandas does not preserve.
+        for table in soup.find_all("table"):
+            text=" ".join(table.stripped_strings)
+            if "馬名" in text and "騎手" in text:
+                try:
+                    target=pd.read_html(str(table))[0]
+                    break
+                except Exception:
+                    pass
     if target is None: return None
     target=target.copy(); target.columns=[str(c) for c in target.columns]; out=[]
     for _,row in target.iterrows():
