@@ -6,6 +6,7 @@ name: bootstrap-keiba-history
 # Layout extraction validation
 # Runner spacing fix validation
 # Final spacing correction
+# Bare diff marker fix
 # CID digit decoding pass
 on:
   workflow_dispatch:
