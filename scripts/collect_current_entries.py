@@ -38,7 +38,7 @@ def links_from_homepage(session):
 
     # Directly probe the current week's public entry pages for the two Sunday feature pages.
     # JRA may expose these pages without linking them from the homepage navigation.
-    for direct in ("/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
+    for direct in ("/keiba/race/082/syutsuba.html","/keiba/race/083/syutsuba.html","/keiba/race/084/syutsuba.html","/keiba/race/085/syutsuba.html","/keiba/race/086/syutsuba.html","/keiba/race/087/syutsuba.html","/keiba/race/088/syutsuba.html","/keiba/race/089/syutsuba.html","/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
         href=urljoin(BASE,direct)
         try:
             pr=session.get(href,headers={"User-Agent":UA},timeout=30)
