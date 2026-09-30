@@ -33,8 +33,9 @@ def build_current(x,history):
     x["jockey"]=x[jockey_col].astype(str) if jockey_col else ""
     x["trainer"]=x[trainer_col].astype(str) if trainer_col else ""
     x["odds"]=x[odds_col].map(parse_num) if odds_col else np.nan
-    x["post"]=pd.to_numeric(x.get("馬番",np.nan),errors="coerce")
-    x["bracket"]=pd.to_numeric(x.get("枠",np.nan),errors="coerce")
+    post_col=col("馬番"); bracket_col=col("枠")
+    x["post"]=pd.to_numeric(x[post_col],errors="coerce") if post_col else np.nan
+    x["bracket"]=pd.to_numeric(x[bracket_col],errors="coerce") if bracket_col else np.nan
     x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str)
     x["field_size"]=x.groupby("race_group")["horse"].transform("count")
 
