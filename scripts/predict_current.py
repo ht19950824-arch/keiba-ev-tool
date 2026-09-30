@@ -27,7 +27,11 @@ def build_current(x,history):
     x["sex"]=x[age_col].map(lambda s: next((z for z in ["牡","牝","セ"] if z in str(s)),"unknown")) if age_col else "unknown"
     x["weight_carried"]=x[weight_col].map(parse_num) if weight_col else np.nan; x["jockey"]=x[jockey_col].astype(str) if jockey_col else ""; x["trainer"]=x[trainer_col].astype(str) if trainer_col else ""; x["odds"]=x[odds_col].map(parse_num) if odds_col else np.nan
     x["post"]=pd.to_numeric(x.get("馬番",np.nan),errors="coerce"); x["bracket"]=pd.to_numeric(x.get("枠",np.nan),errors="coerce");
-    # JRA publishes a first-stage entry table without horse/gate numbers; keep the\n    # horse-level prediction usable by marking these fields missing rather than\n    # manufacturing a post/gate assignment.\n    x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str)\n    x["field_size"]=x.groupby("race_group")["horse"].transform("count")
+    # JRA publishes a first-stage entry table without horse/gate numbers; keep the
+    # horse-level prediction usable by marking these fields missing rather than
+    # manufacturing a post/gate assignment.
+    x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str)
+    x["field_size"]=x.groupby("race_group")["horse"].transform("count")
     history=history.copy(); history["race_date"]=pd.to_datetime(history["race_date"],errors="coerce"); history["win"]=(pd.to_numeric(history["finish"],errors="coerce")==1).astype(int)
     for key,name in [("horse","horse_win_rate"),("course","course_win_rate"),("distance","distance_win_rate"),("surface","surface_win_rate"),("track_condition","condition_win_rate")]:
         if key in history.columns and key in x.columns:
@@ -63,7 +67,9 @@ def build_current(x,history):
         x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str)
         x["field_size"]=x.groupby("race_group")["horse"].transform("count")
     x["post_pct"]=(x["post"]-1)/x["field_size"].clip(lower=2); x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2)
-    x["track_condition"]="unknown"; x["running_style"]="unknown"; x["class_name"]="unknown"; x["season"]=pd.to_datetime(x["race_date"],errors="coerce").dt.month.fillna(pd.Timestamp.now().month).astype(int).astype(str); x["class_score"]=0.; x["meeting_no"]=x.get("meeting_no","unknown").astype(str)
+    x["track_condition"]="unknown"; x["running_style"]="unknown"; x["class_name"]="unknown"; x["season"]=pd.to_datetime(x["race_date"],errors="coerce").dt.month.fillna(pd.Timestamp.now().month).astype(int).astype(str); x["class_score"]=0.;
+    meeting=x.get("meeting_no")
+    x["meeting_no"]=meeting.astype(str) if isinstance(meeting,pd.Series) else "unknown"
     return x
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--entries",default="data/processed/current_entries.json"); ap.add_argument("--model",default="data/processed/model/model.joblib"); ap.add_argument("--history-glob",default="data/processed/runners_*.parquet"); ap.add_argument("--out",default="web/data/current_predictions.json"); a=ap.parse_args()
