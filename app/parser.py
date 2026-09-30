@@ -95,10 +95,10 @@ def parse_text(text: str) -> list[dict[str, Any]]:
             continue
 
         prefix = "\n".join(lines[:12])
-        dm = re.search(r"(?P<distance>\d{3,5})\s*[\x00-\x1f\uFFFD]?\s*$", prefix.split("発走", 1)[0])
+        dm = re.search(r"(?P<distance>[\d,]{3,7})\s*[\x00-\x1f\uFFFD]?\s*$", prefix.split("発走", 1)[0])
         if not dm:
             # Distance is normally the last number on the race-title line.
-            dm = re.search(r"(?P<distance>\d{3,5})\s*[\x00-\x1f\uFFFD]?(?:\n|$)", prefix)
+            dm = re.search(r"(?P<distance>[\d,]{3,7})\s*[\x00-\x1f\uFFFD]?(?:\n|$)", prefix)
         if not dm:
             continue
 
