@@ -91,8 +91,10 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
     prefix = "\n".join(chunk.splitlines()[:12])
     hm = re.search(
         r"(?P<raceid>\d{5})\s*(?P<month>\d{1,2})月\s*(?P<day>\d{1,2})日.*?"
-        r"（(?:(?P<year>\d{4})年)?(?P<meeting>\d+)"
-        r"(?P<course>" + "|".join(COURSES) + r")）"
+        r"（(?:(?P<year>\d{4})年(?P<meeting_modern>\d+)|(?P<era>\d{1,2})(?P<meeting_era>\d+))"
+        r"(?P<course>" + "|".join(COURSES) + r")?）"
+        r"|(?P<raceid2>\d{5})\s*(?P<month2>\d{1,2})月\s*(?P<day2>\d{1,2})日.*?"
+        r"（(?P<era2>\d{1,2})(?P<course2>" + "|".join(COURSES) + r")(?P<meeting_era2>\d+)）"
         r"\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
         prefix,
         re.S,
@@ -102,6 +104,12 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
 
     year = hm.group("year") or year_hint
     if not re.fullmatch(r"\d{4}", year):
+        return None
+    meeting = hm.group("meeting_modern") or hm.group("meeting_era") or hm.group("meeting_era2")
+    course = hm.group("course") or hm.group("course2")
+    month = hm.group("month") or hm.group("month2")
+    day = hm.group("day") or hm.group("day2")
+    if not meeting or not course:
         return None
 
     dm = re.search(
@@ -114,10 +122,10 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
 
     distance = int(dm.group("distance").replace(",", ""))
     race = {
-        "race_key": f"{year}-{hm.group('course')}-{hm.group('meeting')}-{hm.group('raceid')}",
-        "race_date": f"{year}-{int(hm.group('month')):02d}-{int(hm.group('day')):02d}",
-        "course": hm.group("course"),
-        "meeting_no": hm.group("meeting"),
+        "race_key": f"{year}-{course}-{meeting}-{hm.group('raceid') or hm.group('raceid2')}",
+        "race_date": f"{year}-{int(month):02d}-{int(day):02d}",
+        "course": course,
+        "meeting_no": meeting,
         "day_no": int(hm.group("day_no")),
         "race_no": int(hm.group("raceno")),
         "distance": distance,
