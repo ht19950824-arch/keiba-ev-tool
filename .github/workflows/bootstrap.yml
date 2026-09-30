@@ -1,14 +1,4 @@
 name: bootstrap-keiba-history
-# Re-run bootstrap after data pipeline fixes
-# Parser validation pass
-# Final parser retry
-# Add parser smoke diagnostic
-# Layout extraction validation
-# Runner spacing fix validation
-# Final spacing correction
-# Bare diff marker fix
-# CID digit decoding pass
-# Final end-to-end bootstrap retry
 on:
   workflow_dispatch:
   push:
@@ -16,64 +6,65 @@ on:
       - '.github/workflows/bootstrap.yml'
       - 'scripts/**'
       - 'app/**'
-permissions: {contents: write}
+permissions:
+  contents: write
 
 env:
   PYTHONPATH: ${{ github.workspace }}
+
 concurrency:
   group: keiba-bootstrap-final
   cancel-in-progress: true
+
 jobs:
   collect:
+    strategy:
+      fail-fast: false
+      matrix:
+        year: [2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
+        with:
+          python-version: '3.12'
       - run: pip install -r requirements.txt
-      - name: Collect and ingest 10 years
+      - name: Collect and ingest
         run: |
           set -e
-          set -e
-          pids=""
-          for YEAR in 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026; do
-            (
-              set -e
-              echo "=== YEAR $YEAR ==="
-              python scripts/discover_jra_pdfs.py --year "$YEAR" --sleep 0
-              python scripts/download_jra_pdfs.py --year "$YEAR" --index-dir data/processed --out data/raw --sleep 0.15
-              python scripts/ingest_pdfs.py --year "$YEAR" --db "data/processed/keiba_$YEAR.sqlite"
-              test -f "data/processed/runners_$YEAR.parquet"
-            ) &
-            pids="$pids $!"
-          done
-          status=0
-          for pid in $pids; do
-            wait "$pid" || status=1
-          done
-          exit "$status"
+          YEAR=${{ matrix.year }}
+          python scripts/discover_jra_pdfs.py --year "$YEAR" --sleep 0
+          python scripts/download_jra_pdfs.py --year "$YEAR" --index-dir data/processed --out data/raw --sleep 0.15
+          python scripts/ingest_pdfs.py --year "$YEAR"
+          test -f "data/processed/runners_$YEAR.parquet"
       - uses: actions/upload-artifact@v4
         with:
-          name: processed-all
+          name: processed-${{ matrix.year }}
           path: |
-            data/processed/runners_*.parquet
-            data/processed/jra_*_pdfs.json
+            data/processed/runners_${{ matrix.year }}.parquet
+            data/processed/jra_${{ matrix.year }}_pdfs.json
           retention-days: 7
+
   assemble:
     needs: collect
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: processed-all
-          path: data/processed/artifacts
-      - name: Normalize downloaded artifacts
+          pattern: processed-*
+          path: data/processed
+          merge-multiple: true
+      - name: Verify processed history
         run: |
-          find data/processed/artifacts -type f -name 'runners_*.parquet' -exec cp {} data/processed/ \;
-          find data/processed/artifacts -type f -name 'jra_*_pdfs.json' -exec cp {} data/processed/ \;
+          set -e
+          for YEAR in 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026; do
+            test -s "data/processed/runners_$YEAR.parquet"
+          done
+          ls -lh data/processed/runners_*.parquet
       - uses: actions/setup-python@v5
-        with: {python-version: '3.12'}
+        with:
+          python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python scripts/collect_current_entries.py --out data/processed/current_entries.json
       - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
