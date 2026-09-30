@@ -38,6 +38,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - name: Run regression tests
+        run: pytest -q
       - name: Collect and ingest
         continue-on-error: true
         run: |
