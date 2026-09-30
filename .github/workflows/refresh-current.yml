@@ -44,7 +44,8 @@ jobs:
           d=json.load(open("data/processed/current_entries.json",encoding="utf-8"))
           published=bool(d.get("races")) and sum(len(r.get("rows",[])) for r in d.get("races",[]))>0
           with open(os.environ["GITHUB_OUTPUT"],"a") as f:
-              f.write("published="+("true" if published else "false")+"\n")
+              f.write("published="+("true" if published else "false")+"
+")
           print("published=",published)
           PY
       - name: Train and predict current races
@@ -66,7 +67,8 @@ jobs:
           for r in p:
               assert r.get("horse") and r.get("race_key")
               assert 0 <= float(r["model_win_prob"]) <= 1
-              if r.get("odds") is not None:\n                  assert float(r["odds"]) > 0
+              if r.get("odds") is not None:
+                  assert float(r["odds"]) > 0
           print("validated",len(p),"predictions")
           PY
       - name: Publish refreshed data
