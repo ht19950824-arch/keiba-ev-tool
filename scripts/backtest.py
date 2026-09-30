@@ -23,7 +23,7 @@ def evaluate(df:pd.DataFrame,min_ev:float=1.20,min_odds:float=3.0)->dict:
     picks["stake"]=1.0
     picks["return"]=np.where(picks["finish"]==1,picks["odds"],0.0)
     stake=float(picks["stake"].sum()); ret=float(picks["return"].sum())
-    market_hit=float((1/picks["odds"]).mean()) if len(picks) else np.nan
+    market_hit=float((1/picks["odds"]).mean()) if len(picks) else np.nan\n    brier=float(((picks["model_win_prob"]-(picks["finish"]==1).astype(float))**2).mean()) if len(picks) else np.nan
     hit=float((picks["finish"]==1).mean()) if len(picks) else np.nan
     race_count=int(picks["race_key"].nunique()) if "race_key" in picks.columns else None
     max_bets_per_race=int(picks.groupby("race_key").size().max()) if "race_key" in picks.columns and len(picks) else None
@@ -32,7 +32,7 @@ def evaluate(df:pd.DataFrame,min_ev:float=1.20,min_odds:float=3.0)->dict:
         "roi":ret/stake if stake else np.nan,"hit_rate":hit,
         "market_implied_hit_rate":market_hit,
         "hit_rate_minus_market":hit-market_hit if np.isfinite(hit) and np.isfinite(market_hit) else np.nan,
-        "max_bets_per_race":max_bets_per_race,
+        "max_bets_per_race":max_bets_per_race,\n        "brier_score":brier,
         "quality_warning":bool(len(picks)>=50 and np.isfinite(hit) and np.isfinite(market_hit) and hit>market_hit*2.0),
     }
 
