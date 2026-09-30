@@ -92,7 +92,7 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
     hm = re.search(
         r"(?P<raceid>\d{5})\s*(?P<month>\d{1,2})月\s*(?P<day>\d{1,2})日.*?"
         r"（(?:(?P<year>\d{4})年)?(?P<meeting>\d+)"
-        r"(?P<course>" + "|".join(COURSES) + r")(?P<meeting_day>\d+)）"
+        r"(?P<course>" + "|".join(COURSES) + r")）"
         r"\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
         prefix,
         re.S,
