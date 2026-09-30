@@ -26,7 +26,10 @@ def build_current(x,history):
     x["age"]=x[age_col].map(lambda s: parse_num(re.search(r"[牡牝セ]\s*(\d+)",str(s)).group(1)) if re.search(r"[牡牝セ]\s*(\d+)",str(s)) else np.nan) if age_col else np.nan
     x["sex"]=x[age_col].map(lambda s: next((z for z in ["牡","牝","セ"] if z in str(s)),"unknown")) if age_col else "unknown"
     x["weight_carried"]=x[weight_col].map(parse_num) if weight_col else np.nan; x["jockey"]=x[jockey_col].astype(str) if jockey_col else ""; x["trainer"]=x[trainer_col].astype(str) if trainer_col else ""; x["odds"]=x[odds_col].map(parse_num) if odds_col else np.nan
-    x["post"]=pd.to_numeric(x.get("馬番",np.nan),errors="coerce"); x["bracket"]=pd.to_numeric(x.get("枠",np.nan),errors="coerce");\n    # JRA publishes a first-stage entry table without horse/gate numbers; keep the\n    # horse-level prediction usable by marking these fields missing rather than\n    # manufacturing a post/gate assignment. x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str); x["field_size"]=x.groupby("race_group")["horse"].transform("count")
+    x["post"]=pd.to_numeric(x.get("馬番",np.nan),errors="coerce"); x["bracket"]=pd.to_numeric(x.get("枠",np.nan),errors="coerce");
+    # JRA publishes a first-stage entry table without horse/gate numbers; keep the
+    # horse-level prediction usable by marking these fields missing rather than
+    # manufacturing a post/gate assignment. x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str); x["field_size"]=x.groupby("race_group")["horse"].transform("count")
     history=history.copy(); history["race_date"]=pd.to_datetime(history["race_date"],errors="coerce"); history["win"]=(pd.to_numeric(history["finish"],errors="coerce")==1).astype(int)
     for key,name in [("horse","horse_win_rate"),("course","course_win_rate"),("distance","distance_win_rate"),("surface","surface_win_rate"),("track_condition","condition_win_rate")]:
         if key in history.columns and key in x.columns:
@@ -46,7 +49,11 @@ def build_current(x,history):
         x["course_distance_win_rate"]=x["_cd"].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)
     else:
         x["course_distance_win_rate"]=.05
-    if "trainer" in history.columns and "trainer" in x.columns:\n        g=history.groupby("trainer")["win"].agg(["sum","count"])\n        x["trainer_win_rate"]=x["trainer"].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)\n    else:\n        x["trainer_win_rate"]=.05
+    if "trainer" in history.columns and "trainer" in x.columns:
+        g=history.groupby("trainer")["win"].agg(["sum","count"])
+        x["trainer_win_rate"]=x["trainer"].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)
+    else:
+        x["trainer_win_rate"]=.05
     recent_cols=[c for c in x.columns if any(k in c for k in ["前走","前々走","3走前","4走前"])]
     recent_values=x[recent_cols].map(recent_finish) if recent_cols else pd.DataFrame(index=x.index)
     x["last_finish"]=recent_values.iloc[:,0] if not recent_values.empty else np.nan
