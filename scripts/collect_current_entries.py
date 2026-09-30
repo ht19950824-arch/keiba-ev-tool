@@ -25,10 +25,10 @@ def links_from_homepage(session):
     # JRA also exposes current-race navigation through JavaScript actions.
     html=r.text
     patterns=[
-        r'accessD\\.html\\?CNAME=([^\'"]+)',
-        r'accessD\\.html[^\\n]{0,300}?[Cc][Nn][Aa][Mm][Ee]=([^\'"]+)',
-        r'(?:doAction|do_action)\\s*\\(\\s*[\'"](?:/)?JRADB/accessD\\.html[\'"]\\s*,\\s*[\'"]([^\'"]+)[\'"]',
-        r'(?:doAction|do_action)\\s*\\(\\s*[\'"](?:accessD\\.html)[\'"]\\s*,\\s*[\'"]([^\'"]+)[\'"]',
+        r'accessD\.html\?CNAME=([^\'"]+)',
+        r'accessD\.html[^\n]{0,300}?[Cc][Nn][Aa][Mm][Ee]=([^\'"]+)',
+        r'(?:doAction|do_action)\s*\(\s*[\'"](?:/)?JRADB/accessD\.html[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]',
+        r'(?:doAction|do_action)\s*\(\s*[\'"](?:accessD\.html)[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]',
     ]
     for pat in patterns:
         for m in re.finditer(pat, html, flags=re.I):
@@ -44,7 +44,7 @@ def links_from_homepage(session):
     for tag in soup.find_all(True):
         blob=" ".join(str(tag.get(k,"")) for k in ("onclick","data-action","data-url","data-href"))
         if "accessD.html" in blob:
-            for m in re.finditer(r'(?:CNAME=)?(pw01dde[^\'";,)<>\\s]+)', blob, flags=re.I):
+            for m in re.finditer(r'(?:CNAME=)?(pw01dde[^\'";,)<>\s]+)', blob, flags=re.I):
                 add(f"/JRADB/accessD.html?CNAME={m.group(1)}", tag.get_text(" ",strip=True))
     return links
 def parse_page(session,url):
