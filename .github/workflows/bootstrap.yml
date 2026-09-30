@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/bootstrap.yml'
       - 'scripts/**'
+      - 'app/**'
 permissions: {contents: write}
 
 env:
