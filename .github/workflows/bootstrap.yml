@@ -106,8 +106,11 @@ jobs:
           print(f"current_status={status} current_races={len(races)} current_rows={rows} fetched_at={data.get('fetched_at')}")
           if not races or rows == 0:
               print("No current JRA entries are published yet; keeping current prediction output empty.")
-          elif rows < len(races):
-              raise SystemExit("Current JRA entry data contains a race with zero runners.")
+          else:
+              empty=[i+1 for i,r in enumerate(races) if not r.get("rows")]
+              if empty:
+                  raise SystemExit(f"Current JRA entry data contains empty race records: {empty}")
+              print("Current JRA entry data passed race-level validation.")
           PY
       - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
       - run: python scripts/predict_current.py --entries data/processed/current_entries.json --model data/processed/model/model.joblib --history-glob "data/processed/runners_*.parquet" --out web/data/current_predictions.json
