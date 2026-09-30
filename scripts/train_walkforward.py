@@ -6,7 +6,11 @@ from joblib import dump
 from app.model import fit,predict
 from scripts.backtest import evaluate
 def load_years(processed,years):
-    frames=[pd.read_parquet(processed/f"runners_{y}.parquet") for y in years if (processed/f"runners_{y}.parquet").exists()]
+    frames=[]
+    for y in years:
+        matches=list(processed.rglob(f"runners_{y}.parquet"))
+        if matches:
+            frames.append(pd.read_parquet(matches[0]))
     if not frames: raise FileNotFoundError("No processed runner parquet files found")
     return pd.concat(frames,ignore_index=True)
 def run(train_years,test_year,processed,out,public_dir):
