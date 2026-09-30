@@ -7,13 +7,11 @@ from typing import Any
 import pdfplumber
 
 JP_NUM = str.maketrans("０１２３４５６７８９．，", "0123456789.,")
-
 COURSES = ("札幌", "函館", "福島", "新潟", "東京", "中山", "中京", "京都", "阪神", "小倉")
 
 
 def norm(s: str) -> str:
     s = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", " ", s)
-    s = re.sub(r"\(cid:(987[2-9]|988[0-1])\)", lambda m: str(int(m.group(1)) - 9872), s)
     s = re.sub(r"\(cid:\d+\)", " ", s)
     return s.translate(JP_NUM).replace("\u3000", " ").strip()
 
@@ -27,7 +25,7 @@ def num(s: str | None) -> float | None:
 
 def extract_text(path: str | Path) -> str:
     with pdfplumber.open(path) as pdf:
-        return "\n".join(page.extract_text(layout=True) or "" for page in pdf.pages)
+        return "\n".join(page.extract_text(layout=False) or "" for page in pdf.pages)
 
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
@@ -35,7 +33,6 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     m = re.match(r"^(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
-
     body = m.group("body")
     sm = re.search(
         r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s+"
@@ -44,35 +41,22 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     )
     if not sm:
         return None
-
     tail = body[sm.end():]
-    om = re.search(r"(?P<odds>\d{1,4}(?:[．.]\d)?)\s*$", tail)
+    om = re.search(r"(?P<odds>\d{1,4}(?:[.．]\d)?)\s*$", tail)
     if not om:
         return None
-
     odds = num(om.group("odds"))
     before = tail[:om.start()].strip()
-    tm = re.search(r"(?P<time>\d{1,2}[:：]\d{2}[．.]\d)", before)
+    tm = re.search(r"(?P<time>\d{1,2}[:：]\d{2}[.．]\d)", before)
     if not tm:
         return None
-
     prefix = before[:tm.start()].strip()
-    wm = re.search(
-        r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-―ー](?:\s*\d{1,2})?))?\s*$",
-        prefix,
-    )
+    wm = re.search(r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-]\s*\d{1,2}))?\s*$", prefix)
     if not wm:
         return None
-
     diff = (wm.group("diff") or "0").replace(" ", "")
     digits = re.sub(r"[^0-9]", "", diff)
-    if not digits:
-        hw_diff = 0
-    elif diff.startswith(("－", "-", "−")):
-        hw_diff = -int(digits)
-    else:
-        hw_diff = int(digits)
-
+    hw_diff = 0 if not digits else (-int(digits) if diff.startswith(("－", "-", "−")) else int(digits))
     return {
         "bracket": int(m.group("bracket")),
         "post": int(m.group("post")),
@@ -87,44 +71,44 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     }
 
 
-def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | None:
-    prefix = "\n".join(chunk.splitlines()[:12])
+def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
+    lines = [norm(x) for x in chunk.splitlines() if norm(x)]
+    header_idx = next((i for i, line in enumerate(lines[:30]) if re.search(r"\b\d{5}\s*\d{1,2}月\s*\d{1,2}日", line)), None)
+    if header_idx is None:
+        return None
+    header = lines[header_idx]
     dm = re.search(
         r"(?P<raceid>\d{5})\s*(?P<month>\d{1,2})月\s*(?P<day>\d{1,2})日.*?"
-        r"\（(?P<inside>[^）]+)\）\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
-        prefix,
-        re.S,
+        r"（(?P<inside>[^）]+)）\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
+        header,
     )
     if not dm:
         return None
-
     inside = dm.group("inside")
-    modern = re.fullmatch(r"(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>" + "|".join(COURSES) + r")", inside)
-    legacy = re.fullmatch(r"(?P<era>\d{1,2})(?P<course>" + "|".join(COURSES) + r")(?P<meeting>\d+)", inside)
+    course_re = "|".join(COURSES)
+    modern = re.fullmatch(r"(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>" + course_re + r")", inside)
+    legacy = re.fullmatch(r"(?P<meeting>\d+)(?P<course>" + course_re + r")", inside)
     if modern:
-        year = modern.group("year")
-        course = modern.group("course")
-        meeting = modern.group("meeting")
+        year, meeting, course = modern.group("year"), modern.group("meeting"), modern.group("course")
     elif legacy:
-        year = year_hint
-        course = legacy.group("course")
-        meeting = legacy.group("meeting")
+        year, meeting, course = year_hint, legacy.group("meeting"), legacy.group("course")
     else:
         return None
-
-    if not re.fullmatch(r"\d{4}", year):
+    dm_distance = re.search(r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})\s*$", header)
+    if not dm_distance:
         return None
-
-    distance_match = re.search(
-        r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})[^\d]{0,8}(?=発走)",
-        prefix,
-        re.S,
-    )
-    if not distance_match:
-        return None
-
-    distance = int(distance_match.group("distance").replace(",", ""))
-    race = {
+    distance = int(dm_distance.group("distance").replace(",", ""))
+    context = "\n".join(lines[header_idx:header_idx + 6])
+    surface = "ダート" if "（ダート" in context else ("芝" if "（芝" in context else "障害")
+    if "不良" in context:
+        condition = "不良"
+    elif "稍重" in context:
+        condition = "稍重"
+    elif re.search(r"(?:^|\n)重(?:$|\n)", context):
+        condition = "重"
+    else:
+        condition = "良"
+    return {
         "race_key": f"{year}-{course}-{meeting}-{dm.group('raceid')}",
         "race_date": f"{year}-{int(dm.group('month')):02d}-{int(dm.group('day')):02d}",
         "course": course,
@@ -132,41 +116,28 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
         "day_no": int(dm.group("day_no")),
         "race_no": int(dm.group("raceno")),
         "distance": distance,
-        "surface": "ダート" if "（ダート" in prefix else ("芝" if "（芝" in prefix else "障害"),
-        "track_condition": (
-            "不良" if "不良" in prefix else
-            "稍重" if "稍重" in prefix else
-            "重" if re.search(r"\n重\s*\n", prefix) else
-            "良"
-        ),
+        "surface": surface,
+        "track_condition": condition,
     }
-    return race, dm.group("raceid")
 
 
 def parse_text(text: str, year_hint: str | None = None) -> list[dict[str, Any]]:
     text = norm(text)
-    if year_hint is None:
-        year_hint = "unknown"
-
+    year_hint = year_hint or "unknown"
     chunks = re.split(r"(?m)(?=^\s*\d{5}\s*\d{1,2}月\s*\d{1,2}日)", text)
     rows: list[dict[str, Any]] = []
-
     for chunk in chunks:
-        parsed = _race_header(chunk, year_hint)
-        if parsed is None:
+        race = _race_header(chunk, year_hint)
+        if race is None:
             continue
-        race, _ = parsed
-
-        runners: list[dict[str, Any]] = []
+        runners = []
         for line in chunk.split("売得金", 1)[0].splitlines():
             p = _parse_runner_line(line)
             if p:
                 runners.append({**race, **p})
-
         for finish, row in enumerate(runners, 1):
             row["finish"] = finish
             rows.append(row)
-
     return rows
 
 
