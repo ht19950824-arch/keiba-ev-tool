@@ -8,6 +8,7 @@ name: bootstrap-keiba-history
 # Final spacing correction
 # Bare diff marker fix
 # CID digit decoding pass
+# Final end-to-end bootstrap retry
 on:
   workflow_dispatch:
   push:
