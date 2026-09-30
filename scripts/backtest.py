@@ -4,10 +4,17 @@ import numpy as np
 import pandas as pd
 
 def evaluate(df:pd.DataFrame,min_ev:float=1.20,min_odds:float=3.0)->dict:
-    x=df.copy(); x["odds"]=pd.to_numeric(x["odds"],errors="coerce"); x["model_win_prob"]=pd.to_numeric(x["model_win_prob"],errors="coerce"); x["finish"]=pd.to_numeric(x["finish"],errors="coerce")
+    x=df.copy()
+    x["odds"]=pd.to_numeric(x["odds"],errors="coerce")
+    x["model_win_prob"]=pd.to_numeric(x["model_win_prob"],errors="coerce")
+    x["finish"]=pd.to_numeric(x["finish"],errors="coerce")
+    # Exclude invalid/non-settled rows rather than silently counting them as losses.
+    x=x.dropna(subset=["odds","model_win_prob","finish"]).copy()
+    x=x[(x["odds"]>0)&(x["model_win_prob"]>=0)&(x["model_win_prob"]<=1)].copy()
     x["ev"]=x["model_win_prob"]*x["odds"]
     picks=x[(x["ev"]>=min_ev)&(x["odds"]>=min_odds)].copy()
-    picks["stake"]=1.0; picks["return"]=np.where(picks["finish"]==1,picks["odds"],0.0)
+    picks["stake"]=1.0
+    picks["return"]=np.where(picks["finish"]==1,picks["odds"],0.0)
     stake=float(picks["stake"].sum()); ret=float(picks["return"].sum())
     return {"bets":int(len(picks)),"stake":stake,"return":ret,"roi":ret/stake if stake else np.nan,"hit_rate":float((picks["finish"]==1).mean()) if len(picks) else np.nan}
 
