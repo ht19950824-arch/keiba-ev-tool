@@ -1,8 +1,6 @@
 name: bootstrap-keiba-history
 on:
   workflow_dispatch:
-  issues:
-    types: [opened]
   push:
     paths:
       - '.github/workflows/bootstrap.yml'
