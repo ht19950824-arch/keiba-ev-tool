@@ -7,12 +7,13 @@ from typing import Any
 import pdfplumber
 
 JP_NUM = str.maketrans("０１２３４５６７８９．，", "0123456789.,")
+CID_NUM = {str(9872+i): str(i) for i in range(10)}
 COURSES = ("札幌", "函館", "福島", "新潟", "東京", "中山", "中京", "京都", "阪神", "小倉")
 
 
 def norm(s: str) -> str:
     s = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", " ", s)
-    s = re.sub(r"\(cid:\d+\)", " ", s)
+    s = re.sub(r"\(cid:(\d+)\)", lambda m: CID_NUM.get(m.group(1), " "), s)
     return s.translate(JP_NUM).replace("\u3000", " ").strip()
 
 
@@ -94,7 +95,7 @@ def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
         year, meeting, course = year_hint, legacy.group("meeting"), legacy.group("course")
     else:
         return None
-    dm_distance = re.search(r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})\s*$", header)
+    dm_distance = re.search(r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})\s*[ｍm]?\s*$", header)
     if not dm_distance:
         return None
     distance = int(dm_distance.group("distance").replace(",", ""))
