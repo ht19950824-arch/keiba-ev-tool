@@ -15,6 +15,7 @@ async function loadData(){
  try{
   const [p,b,e]=await Promise.all([fetch("./data/current_predictions.json?x="+Date.now()).then(r=>r.json()),fetch("./data/backtest_current.json?x="+Date.now()).then(r=>r.json()),fetch("./data/current_entries.json?x="+Date.now()).then(r=>r.json()).catch(()=>({}))]);
   rows=Array.isArray(p)?p:[];
+  if(e.status!=="published") rows=[];
   const fetched=e.fetched_at?new Date(e.fetched_at).toLocaleString("ja-JP"):"未取得"; const state=e.status==="published"?"出馬表取得済み":"出馬表公開待ち／未取得"; document.querySelector("#updated").textContent=state+" ・ 最終確認 "+fetched;
   const bets=b.bets??0, roi=b.roi;
   document.querySelector("#stats").innerHTML='<div class="stats"><div class="stat">検証ベット数<b>'+bets+'</b></div><div class="stat">検証ROI<b>'+(Number.isFinite(roi)?(roi*100).toFixed(1)+'%':'-')+'</b></div></div><div class="sub" style="margin-top:8px">過去検証値であり、将来の収益を保証するものではありません。</div>';
@@ -36,4 +37,4 @@ function render(){
 }
 document.querySelector("#filter").addEventListener("change",render);loadData();
 if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
-</script></body></html>
+setInterval(loadData, 300000);\n</script></body></html>
