@@ -20,7 +20,7 @@ def run(train_years,test_year,processed,out,public_dir):
     pred.to_parquet(out/f"predictions_{test_year}.parquet",index=False)
     cols=[c for c in ["race_key","race_date","course","distance","post","bracket","horse","odds","model_win_prob","fair_odds","expected_value","value_edge"] if c in pred.columns]
     pred[cols].to_json(out/f"predictions_{test_year}.json",orient="records",force_ascii=False,indent=2)
-    metrics=evaluate(pred,min_ev=1.10,min_odds=3.0)
+    metrics=evaluate(pred,min_ev=1.20,min_odds=3.0)
     (out/f"backtest_{test_year}.json").write_text(json.dumps(metrics,ensure_ascii=False,indent=2,default=float),encoding="utf-8")
     public_dir.mkdir(parents=True,exist_ok=True)
     (public_dir/"current_predictions.json").write_text((out/f"predictions_{test_year}.json").read_text(encoding="utf-8"),encoding="utf-8")
