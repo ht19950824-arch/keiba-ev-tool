@@ -5,7 +5,8 @@ on:
   issues:
     types: [opened]
   schedule:
-    - cron: '15 18 * * *'
+    - cron: '15 7 * * *'   # 16:15 JST
+    - cron: '15 18 * * *'  # 03:15 JST
   push:
     paths:
       - '.github/workflows/bootstrap.yml'
