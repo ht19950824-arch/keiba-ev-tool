@@ -35,10 +35,18 @@ jobs:
               print("\n--- PDFPLUMBER SAMPLE START ---")
               print(text[:5000])
               print("--- PDFPLUMBER SAMPLE END ---")
+              import re
               from app.parser import parse_text
               rows = parse_text(text)
               print("PARSER_ROWS=", len(rows))
               print("PARSER_FIRST=", rows[:2])
+              from app.parser import norm, _parse_runner_line
+              nt = norm(text)
+              print("NORMALIZED_HEAD=", repr(nt[:2500]))
+              for ln in nt.splitlines():
+                  if re.search(r"^[1-8]\s*\d{1,2}\s+", ln):
+                      print("RUNNER_TRY=", repr(ln[:500]), "=>", _parse_runner_line(ln))
+                      break
           PY
   collect:
     runs-on: ubuntu-latest
