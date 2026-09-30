@@ -48,7 +48,7 @@ def links_from_homepage(session):
                     h=link.get("href","")
                     if "accessD.html?CNAME=" in h:
                         links.append({"url":urljoin(BASE,h),"text":link.get_text(" ",strip=True)})
-                for m in re.finditer(r'accessD\\.html\\?CNAME=([^\'"]+)',pr.text,flags=re.I):
+                for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I):
                     u=urljoin(BASE,f"/JRADB/accessD.html?CNAME={m.group(1)}")
                     if u not in {z["url"] for z in links}: links.append({"url":u,"text":""})
         except Exception as e:
