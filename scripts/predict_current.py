@@ -42,7 +42,7 @@ def build_current(x,history):
     return x
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--entries",default="data/processed/current_entries.json"); ap.add_argument("--model",default="data/processed/model/model.joblib"); ap.add_argument("--history-glob",default="data/processed/runners_*.parquet"); ap.add_argument("--out",default="web/data/current_predictions.json"); a=ap.parse_args()
-    current=flatten_current(Path(a.entries)); paths=sorted(Path().glob(a.history_glob))
+    current=flatten_current(Path(a.entries)); paths=sorted(Path("data/processed").rglob("runners_*.parquet"))
     if current.empty or not paths: Path(a.out).write_text("[]",encoding="utf-8"); return
     history=pd.concat([pd.read_parquet(p) for p in paths],ignore_index=True); out=predict(load(a.model),build_current(current,history))
     cols=[c for c in ["race_label","race_date","course","race_no","post","horse","odds","model_win_prob","fair_odds","expected_value","value_edge"] if c in out]
