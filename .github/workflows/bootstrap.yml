@@ -34,13 +34,24 @@ jobs:
       - name: Collect and ingest 10 years
         run: |
           set -e
+          set -e
+          pids=""
           for YEAR in 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026; do
-            echo "=== YEAR $YEAR ==="
-            python scripts/discover_jra_pdfs.py --year "$YEAR" --sleep 0
-            python scripts/download_jra_pdfs.py --year "$YEAR" --index-dir data/processed --out data/raw --sleep 0.15
-            python scripts/ingest_pdfs.py --year "$YEAR"
-            test -f "data/processed/runners_$YEAR.parquet"
+            (
+              set -e
+              echo "=== YEAR $YEAR ==="
+              python scripts/discover_jra_pdfs.py --year "$YEAR" --sleep 0
+              python scripts/download_jra_pdfs.py --year "$YEAR" --index-dir data/processed --out data/raw --sleep 0.15
+              python scripts/ingest_pdfs.py --year "$YEAR" --db "data/processed/keiba_$YEAR.sqlite"
+              test -f "data/processed/runners_$YEAR.parquet"
+            ) &
+            pids="$pids $!"
           done
+          status=0
+          for pid in $pids; do
+            wait "$pid" || status=1
+          done
+          exit "$status"
       - uses: actions/upload-artifact@v4
         with:
           name: processed-all
