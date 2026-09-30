@@ -11,6 +11,24 @@ def links_from_homepage(session):
     r=session.get(BASE,headers={"User-Agent":UA},timeout=30); r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser"); seen=set(); links=[]
 
+    # Explicitly follow JRA's current syutsuba pages exposed from the homepage.
+    for a in soup.select('a[href]'):
+        href=urljoin(BASE,a.get("href",""))
+        if href.endswith("/syutsuba.html") and "/keiba/race/" in href:
+            try:
+                pr=session.get(href,headers={"User-Agent":UA},timeout=30)
+                if pr.ok:
+                    ps=BeautifulSoup(pr.text,"html.parser")
+                    for x in ps.select('a[href]'):
+                        h=x.get("href","")
+                        if "accessD.html?CNAME=" in h:
+                            links.append({"url":urljoin(BASE,h),"text":x.get_text(" ",strip=True)})
+                    for m in re.finditer(r'accessD\\.html\\?CNAME=([^\'"]+)',pr.text,flags=re.I):
+                        u=urljoin(BASE,f"/JRADB/accessD.html?CNAME={m.group(1)}")
+                        if u not in {z["url"] for z in links}: links.append({"url":u,"text":""})
+            except Exception as e:
+                print(f"WARN current syutsuba {href}: {e}")
+
     def add(href, text=""):
         href=urljoin(BASE,href)
         if "accessD.html?CNAME=" not in href or href in seen:
