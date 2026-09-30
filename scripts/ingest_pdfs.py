@@ -14,7 +14,9 @@ def ingest_year(year,raw,processed,db):
         try: rows.extend(parse_pdf(pdf))
         except Exception as e: print(f"WARN {pdf}: {e}")
     if not rows: con.close(); return 0
-    df=compute_track_bias(add_features(pd.DataFrame(rows)))
+    raw_df=pd.DataFrame(rows)
+    raw_df=raw_df.drop_duplicates(["race_key","post"],keep="first").reset_index(drop=True)
+    df=compute_track_bias(add_features(raw_df))
     race_cols=["race_key","race_date","course","meeting_no","race_no","surface","distance","track_condition","field_size"]
     races=df[race_cols].drop_duplicates("race_key")
     drop_cols=["race_date","course","meeting_no","day_no","race_no","surface","distance","track_condition","field_size"]
