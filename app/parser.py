@@ -95,4 +95,10 @@ def parse_text(text: str) -> list[dict[str, Any]]:
     return rows
 
 def parse_pdf(path: str | Path) -> list[dict[str, Any]]:
-    return parse_text(extract_text(path))
+    text = extract_text(path)
+    rows = parse_text(text)
+    # Lightweight CI diagnostic: only the first PDF of a year is logged when
+    # extraction unexpectedly yields zero rows, so failures are actionable.
+    if not rows and Path(path).name.endswith("1.pdf"):
+        print("PARSER_DEBUG", Path(path).name, repr(text[:1800]))
+    return rows
