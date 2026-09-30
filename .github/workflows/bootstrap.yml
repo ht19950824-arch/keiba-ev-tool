@@ -103,7 +103,7 @@ jobs:
           rows=sum(len(r.get("rows", [])) for r in races)
           print(f"current_races={len(races)} current_rows={rows}")
           if not races or rows == 0:
-              raise SystemExit("No current JRA entries were collected")
+              print("No current JRA entries are published yet; keeping current prediction output empty.")
           PY
       - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
       - run: python scripts/predict_current.py --entries data/processed/current_entries.json --model data/processed/model/model.joblib --history-glob "data/processed/runners_*.parquet" --out web/data/current_predictions.json
