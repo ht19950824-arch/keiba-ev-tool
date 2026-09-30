@@ -105,7 +105,7 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
         return None
 
     dm = re.search(
-        r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})",
+        r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})[^\d]{0,8}(?=発走)",
         prefix,
         re.S,
     )
