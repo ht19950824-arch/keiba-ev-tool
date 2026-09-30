@@ -5,6 +5,8 @@ on:
   schedule:
     # Check current JRA entry pages every 30 minutes during Thu-Sun daytime JST.
     - cron: "*/30 0-12 * * 4,5,6,0"
+    # Tighter polling around JRA Thursday entry publication time (16-18 JST).
+    - cron: "*/10 7-9 * * 4"
   push:
     paths:
       - ".github/workflows/refresh-current.yml"
