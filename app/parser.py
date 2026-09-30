@@ -45,7 +45,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not tm:
         return None
     prefix = before[:tm.start()].strip()
-    wm = re.search(r"(?P<hw>\d{3})(?P<diff>[＋+－−±-]\s*\d{1,2})?$", prefix)
+    wm = re.search(r"(?P<hw>\d{3})(?P<diff>[＋+－−±-](?:\s*\d{1,2})?)?$", prefix)
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
