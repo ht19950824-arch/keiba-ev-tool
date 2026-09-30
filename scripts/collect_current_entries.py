@@ -36,6 +36,24 @@ def links_from_homepage(session):
         seen.add(href)
         links.append({"url":href,"text":text})
 
+    # Directly probe the current week's public entry pages for the two Sunday feature pages.
+    # JRA may expose these pages without linking them from the homepage navigation.
+    for direct in ("/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
+        href=urljoin(BASE,direct)
+        try:
+            pr=session.get(href,headers={"User-Agent":UA},timeout=30)
+            if pr.ok:
+                ps=BeautifulSoup(pr.text,"html.parser")
+                for link in ps.select('a[href]'):
+                    h=link.get("href","")
+                    if "accessD.html?CNAME=" in h:
+                        links.append({"url":urljoin(BASE,h),"text":link.get_text(" ",strip=True)})
+                for m in re.finditer(r'accessD\\.html\\?CNAME=([^\'"]+)',pr.text,flags=re.I):
+                    u=urljoin(BASE,f"/JRADB/accessD.html?CNAME={m.group(1)}")
+                    if u not in {z["url"] for z in links}: links.append({"url":u,"text":""})
+        except Exception as e:
+            print(f"WARN direct syutsuba {href}: {e}")
+
     # Ordinary links.
     for a in soup.select('a[href*="accessD.html?CNAME="]'):
         add(a.get("href",""), a.get_text(" ",strip=True))
