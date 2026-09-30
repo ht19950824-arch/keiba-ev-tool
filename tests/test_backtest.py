@@ -5,7 +5,7 @@ def test_evaluate_deduplicates_horse_rows_and_reports_market_baseline():
     df=pd.DataFrame([
         {"race_key":"r1","horse":"A","odds":4,"model_win_prob":0.5,"finish":1,"field_size":2},
         {"race_key":"r1","horse":"A","odds":4,"model_win_prob":0.5,"finish":1,"field_size":2},
-        {"race_key":"r1","horse":"B","odds":5,"model_win_prob":0.2,"finish":2,"field_size":2},
+        {"race_key":"r1","horse":"B","odds":5,"model_win_prob":0.3,"finish":2,"field_size":2},
     ])
     out=evaluate(df,min_ev=1.2,min_odds=3)
     assert out["bets"]==2
