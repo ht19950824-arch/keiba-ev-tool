@@ -10,6 +10,9 @@ def norm(s: str) -> str:
     # pdfplumber may emit control-marker glyphs (e.g. \\x02, \\x03) around
     # odds, symbols, etc. Remove those markers while preserving line breaks.
     s = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", " ", s)
+    # JRA PDFs can encode ASCII digits as pdfminer CID markers. In these
+    # result PDFs the digit glyphs are 9872..9881 => 0..9.
+    s = re.sub(r"\(cid:(987[2-9]|988[0-1])\)", lambda m: str(int(m.group(1)) - 9872), s)
     return s.translate(JP_NUM).replace("\u3000", " ").strip()
 
 def num(s: str | None) -> float | None:
@@ -97,8 +100,4 @@ def parse_text(text: str) -> list[dict[str, Any]]:
 def parse_pdf(path: str | Path) -> list[dict[str, Any]]:
     text = extract_text(path)
     rows = parse_text(text)
-    # Lightweight CI diagnostic: only the first PDF of a year is logged when
-    # extraction unexpectedly yields zero rows, so failures are actionable.
-    if not rows and Path(path).name.endswith("1.pdf"):
-        print("PARSER_DEBUG", Path(path).name, repr(text[:1800]))
     return rows
