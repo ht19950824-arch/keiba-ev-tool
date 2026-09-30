@@ -1,4 +1,4 @@
-name: bootstrap-keiba-history\n# parser-fix verification trigger
+name: bootstrap-keiba-history\n# parser-fix verification trigger\n# force bootstrap via merge
 on:
   workflow_dispatch:
   push:
