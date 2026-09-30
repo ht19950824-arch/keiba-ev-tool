@@ -1,4 +1,4 @@
-name: bootstrap-keiba-history
+name: bootstrap-keiba-history\n# parser-fix verification trigger
 on:
   workflow_dispatch:
   push:
