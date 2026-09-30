@@ -51,7 +51,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
-    if diff in ("±0","0"):
+    if diff in ("±","―","ー","±0","0"):
         hw_diff = 0
     elif diff.startswith(("－","-","−")):
         hw_diff = -int(re.sub(r"[^0-9]","",diff))
