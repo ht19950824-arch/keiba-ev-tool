@@ -1,6 +1,8 @@
 name: bootstrap-keiba-history
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '15 18 * * *'
   push:
     paths:
       - '.github/workflows/bootstrap.yml'
@@ -64,10 +66,15 @@ jobs:
           pattern: processed-*
           path: data/processed
           merge-multiple: true
-      - name: Restore known-good historical parquet fallback
+      - name: Restore only missing historical parquet files
         run: |
           set -e
-          git restore --source 34edaeeda9f005685eb594598be06d6fd90387c6 -- data/processed/runners_*.parquet
+          for YEAR in 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026; do
+            FILE="data/processed/runners_${YEAR}.parquet"
+            if [ ! -s "$FILE" ]; then
+              git show 34edaeeda9f005685eb594598be06d6fd90387c6:"$FILE" > "$FILE"
+            fi
+          done
       - name: Verify processed history
         run: |
           set -e
