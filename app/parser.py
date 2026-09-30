@@ -43,15 +43,11 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not sm:
         return None
     tail = body[sm.end():]
-    om = re.search(r"\d{1,2}[:：]\d{2}[.．]\d\s+(?P<odds>\d{1,4}(?:[.．]\d+)?)\s*$", line)
-    if not om:
-        return None
-    odds = num(om.group("odds"))
-    before = tail[:om.start()].strip()
-    tm = re.search(r"(?P<time>\d{1,2}[:：]\d{2}[.．]\d)", before)
+    tm = re.search(r"(?P<time>\d{1,2}[:：]\d{2}[.．]\d)\s+(?P<odds>\d{1,4}(?:[.．]\d+)?)\s*$", tail)
     if not tm:
         return None
-    prefix = before[:tm.start()].strip()
+    odds = num(tm.group("odds"))
+    prefix = tail[:tm.start()].strip()
     wm = re.search(r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-]\s*\d{1,2}))?\s*$", prefix)
     if not wm:
         return None
