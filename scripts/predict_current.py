@@ -45,6 +45,6 @@ def main():
     current=flatten_current(Path(a.entries)); paths=sorted(Path("data/processed").rglob("runners_*.parquet"))
     if current.empty or not paths: Path(a.out).write_text("[]",encoding="utf-8"); return
     history=pd.concat([pd.read_parquet(p) for p in paths],ignore_index=True); out=predict(load(a.model),build_current(current,history))
-    cols=[c for c in ["race_label","race_date","course","race_no","post","horse","odds","model_win_prob","fair_odds","expected_value","value_edge"] if c in out]
+    cols=[c for c in ["race_key","race_label","race_date","course","race_no","post","horse","odds","model_win_prob","fair_odds","expected_value","value_edge"] if c in out]
     Path(a.out).parent.mkdir(parents=True,exist_ok=True); out[cols].sort_values(["expected_value"],ascending=False,na_position="last").to_json(a.out,orient="records",force_ascii=False,indent=2)
 if __name__=="__main__": main()
