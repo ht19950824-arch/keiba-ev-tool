@@ -32,10 +32,26 @@ def build_current(x,history):
         if key in history.columns and key in x.columns:
             g=history.groupby(key)["win"].agg(["sum","count"]); x[name]=x[key].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)
         else: x[name]=.05
-    x["jockey_win_rate"]=.05; x["trainer_win_rate"]=.05; x["course_distance_win_rate"]=.05
+    # Use historical outcomes available before the current race.
+    if "jockey" in history.columns and "jockey" in x.columns:
+        g=history.groupby("jockey")["win"].agg(["sum","count"])
+        x["jockey_win_rate"]=x["jockey"].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)
+    else:
+        x["jockey_win_rate"]=.05
+    if "course" in history.columns and "distance" in history.columns and "course" in x.columns and "distance" in x.columns:
+        h=history.copy()
+        h["_cd"]=h["course"].astype(str)+"|"+pd.to_numeric(h["distance"],errors="coerce").astype("Int64").astype(str)
+        g=h.groupby("_cd")["win"].agg(["sum","count"])
+        x["_cd"]=x["course"].astype(str)+"|"+pd.to_numeric(x["distance"],errors="coerce").astype("Int64").astype(str)
+        x["course_distance_win_rate"]=x["_cd"].map(((g["sum"]+1)/(g["count"]+20)).to_dict()).fillna(.05)
+    else:
+        x["course_distance_win_rate"]=.05
+    x["trainer_win_rate"]=.05
     recent_cols=[c for c in x.columns if any(k in c for k in ["前走","前々走","3走前","4走前"])]
-    x["last_finish"]=x[recent_cols[0]].map(recent_finish) if recent_cols else np.nan
-    x["last3_avg_finish"]=x["last_finish"]; x["days_since_last"]=np.nan
+    recent_values=x[recent_cols].map(recent_finish) if recent_cols else pd.DataFrame(index=x.index)
+    x["last_finish"]=recent_values.iloc[:,0] if not recent_values.empty else np.nan
+    x["last3_avg_finish"]=recent_values.iloc[:,:3].mean(axis=1) if not recent_values.empty else np.nan
+    x["days_since_last"]=np.nan
     for c in ["horse_weight","horse_weight_diff","last3_avg_margin","last3_avg_speed","early_position","final_position","position_change","last3f_rank"]: x[c]=np.nan
     x["track_bias_score"]=0.; x["pace_score"]=0.; x["post_pct"]=(x["post"]-1)/x["field_size"].clip(lower=2); x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2)
     x["track_condition"]="unknown"; x["running_style"]="unknown"; x["class_name"]="unknown"; x["season"]=pd.Timestamp.now().month.__str__(); x["class_score"]=0.; x["meeting_no"]=x.get("meeting_no","unknown").astype(str)
