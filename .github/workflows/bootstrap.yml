@@ -3,7 +3,9 @@ name: bootstrap-keiba-history
 on:
   workflow_dispatch:
   push:
-    paths: ['.github/workflows/bootstrap.yml']
+    paths:
+      - '.github/workflows/bootstrap.yml'
+      - 'scripts/**'
 permissions: {contents: write}
 
 env:
@@ -23,7 +25,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -r requirements.txt
-      - run: python scripts/discover_jra_pdfs.py --year ${{ matrix.year }} --sleep 0.15
+      - run: python scripts/discover_jra_pdfs.py --year ${{ matrix.year }} --sleep 0
       - run: python scripts/download_jra_pdfs.py --year ${{ matrix.year }} --index-dir data/processed --out data/raw --sleep 0.15
       - run: python scripts/ingest_pdfs.py --year ${{ matrix.year }}
       - uses: actions/upload-artifact@v4
