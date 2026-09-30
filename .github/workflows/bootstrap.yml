@@ -1,4 +1,5 @@
 name: bootstrap-keiba-history
+# auto-rerun after pipeline fix
 on:
   workflow_dispatch:
   issues:
