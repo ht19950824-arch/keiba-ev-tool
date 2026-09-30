@@ -71,7 +71,7 @@ def parse_text(text: str) -> list[dict[str, Any]]:
     for chunk in chunks:
         hm = re.search(
             r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?"
-            r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s+"
+            r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s*"
             r"第\d+日\s+第(?P<raceno>\d+)競走.*?"
             r"(?P<distance>[\d,]{3,5})\s*[^\d\n]{0,4}\n",
             chunk,
