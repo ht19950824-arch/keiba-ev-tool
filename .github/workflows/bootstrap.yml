@@ -91,6 +91,20 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python scripts/collect_current_entries.py --out data/processed/current_entries.json
+      - name: Verify current entries
+        run: |
+          set -e
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("data/processed/current_entries.json")
+          data=json.loads(p.read_text(encoding="utf-8"))
+          races=data.get("races", [])
+          rows=sum(len(r.get("rows", [])) for r in races)
+          print(f"current_races={len(races)} current_rows={rows}")
+          if not races or rows == 0:
+              raise SystemExit("No current JRA entries were collected")
+          PY
       - run: python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
       - run: python scripts/predict_current.py --entries data/processed/current_entries.json --model data/processed/model/model.joblib --history-glob "data/processed/runners_*.parquet" --out web/data/current_predictions.json
       - uses: actions/upload-artifact@v4
