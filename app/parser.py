@@ -74,7 +74,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
 
 def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
     lines = [norm(x) for x in chunk.splitlines() if norm(x)]
-    header_idx = next((i for i, line in enumerate(lines[:30]) if re.search(r"\b\d{5}\s*\d{1,2}月\s*\d{1,2}日", line)), None)
+    header_idx = next((i for i, line in enumerate(lines[:30]) if re.search(r"\d{5}\s*\d{1,2}月\s*\d{1,2}日", line)), None)
     if header_idx is None:
         return None
     header = lines[header_idx]
