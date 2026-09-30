@@ -58,7 +58,11 @@ def build_current(x,history):
     x["last3_avg_finish"]=recent_values.iloc[:,:3].mean(axis=1) if not recent_values.empty else np.nan
     x["days_since_last"]=np.nan
     for c in ["horse_weight","horse_weight_diff","last3_avg_margin","last3_avg_speed","early_position","final_position","position_change","last3f_rank"]: x[c]=np.nan
-    x["track_bias_score"]=0.; x["pace_score"]=0.; x["post_pct"]=(x["post"]-1)/x["field_size"].clip(lower=2); x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2)
+    x["track_bias_score"]=0.; x["pace_score"]=0.
+    if "field_size" not in x:
+        x["race_group"]=x["race_date"].astype(str)+"|"+x["course"].astype(str)+"|"+x["race_no"].astype(str)
+        x["field_size"]=x.groupby("race_group")["horse"].transform("count")
+    x["post_pct"]=(x["post"]-1)/x["field_size"].clip(lower=2); x["bracket_pct"]=(x["bracket"]-1)/x["field_size"].clip(lower=2)
     x["track_condition"]="unknown"; x["running_style"]="unknown"; x["class_name"]="unknown"; x["season"]=pd.to_datetime(x["race_date"],errors="coerce").dt.month.fillna(pd.Timestamp.now().month).astype(int).astype(str); x["class_score"]=0.; x["meeting_no"]=x.get("meeting_no","unknown").astype(str)
     return x
 def main():
