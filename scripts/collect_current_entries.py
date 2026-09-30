@@ -119,7 +119,13 @@ def links_from_homepage(session):
         if "accessD.html" in blob:
             for m in re.finditer(r'(?:CNAME=)?(pw01dde[^\'";,)<>\s]+)', blob, flags=re.I):
                 add(f"/JRADB/accessD.html?CNAME={m.group(1)}", tag.get_text(" ",strip=True))
-    return links
+    unique=[]
+    seen_urls=set()
+    for item in links:
+        if item["url"] not in seen_urls:
+            seen_urls.add(item["url"])
+            unique.append(item)
+    return unique
 def parse_page(session,url):
     r=session.get(url,headers={"User-Agent":UA},timeout=30); r.raise_for_status()
     soup=BeautifulSoup(r.text,"html.parser"); page_text=soup.get_text(" ",strip=True)
