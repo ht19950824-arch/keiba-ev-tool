@@ -16,8 +16,8 @@ env:
   PYTHONPATH: ${{ github.workspace }}
 
 concurrency:
-  group: keiba-current-refresh
-  cancel-in-progress: true
+  group: keiba-data-publish
+  cancel-in-progress: false
 
 jobs:
   refresh:
