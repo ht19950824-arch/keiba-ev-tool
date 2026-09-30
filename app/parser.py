@@ -89,45 +89,48 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
 
 def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | None:
     prefix = "\n".join(chunk.splitlines()[:12])
-    hm = re.search(
-        r"(?P<raceid>\d{5})\s*(?P<month>\d{1,2})月\s*(?P<day>\d{1,2})日.*?"
-        r"（(?:(?P<year>\d{4})年(?P<meeting_modern>\d+)|(?P<era>\d{1,2})(?P<meeting_era>\d+))"
-        r"(?P<course>" + "|".join(COURSES) + r")?）"
-        r"|(?P<raceid2>\d{5})\s*(?P<month2>\d{1,2})月\s*(?P<day2>\d{1,2})日.*?"
-        r"（(?P<era2>\d{1,2})(?P<course2>" + "|".join(COURSES) + r")(?P<meeting_era2>\d+)）"
-        r"\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
-        prefix,
-        re.S,
-    )
-    if not hm:
-        return None
-
-    year = hm.group("year") or year_hint
-    if not re.fullmatch(r"\d{4}", year):
-        return None
-    meeting = hm.group("meeting_modern") or hm.group("meeting_era") or hm.group("meeting_era2")
-    course = hm.group("course") or hm.group("course2")
-    month = hm.group("month") or hm.group("month2")
-    day = hm.group("day") or hm.group("day2")
-    if not meeting or not course:
-        return None
-
     dm = re.search(
-        r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})[^\d]{0,8}(?=発走)",
+        r"(?P<raceid>\d{5})\s*(?P<month>\d{1,2})月\s*(?P<day>\d{1,2})日.*?"
+        r"\（(?P<inside>[^）]+)\）\s*第(?P<day_no>\d+)日\s*第(?P<raceno>\d+)競走",
         prefix,
         re.S,
     )
     if not dm:
         return None
 
-    distance = int(dm.group("distance").replace(",", ""))
+    inside = dm.group("inside")
+    modern = re.fullmatch(r"(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>" + "|".join(COURSES) + r")", inside)
+    legacy = re.fullmatch(r"(?P<era>\d{1,2})(?P<course>" + "|".join(COURSES) + r")(?P<meeting>\d+)", inside)
+    if modern:
+        year = modern.group("year")
+        course = modern.group("course")
+        meeting = modern.group("meeting")
+    elif legacy:
+        year = year_hint
+        course = legacy.group("course")
+        meeting = legacy.group("meeting")
+    else:
+        return None
+
+    if not re.fullmatch(r"\d{4}", year):
+        return None
+
+    distance_match = re.search(
+        r"第\d+競走.*?(?P<distance>\d[\d,]{2,6})[^\d]{0,8}(?=発走)",
+        prefix,
+        re.S,
+    )
+    if not distance_match:
+        return None
+
+    distance = int(distance_match.group("distance").replace(",", ""))
     race = {
-        "race_key": f"{year}-{course}-{meeting}-{hm.group('raceid') or hm.group('raceid2')}",
-        "race_date": f"{year}-{int(month):02d}-{int(day):02d}",
+        "race_key": f"{year}-{course}-{meeting}-{dm.group('raceid')}",
+        "race_date": f"{year}-{int(dm.group('month')):02d}-{int(dm.group('day')):02d}",
         "course": course,
         "meeting_no": meeting,
-        "day_no": int(hm.group("day_no")),
-        "race_no": int(hm.group("raceno")),
+        "day_no": int(dm.group("day_no")),
+        "race_no": int(dm.group("raceno")),
         "distance": distance,
         "surface": "ダート" if "（ダート" in prefix else ("芝" if "（芝" in prefix else "障害"),
         "track_condition": (
@@ -137,7 +140,7 @@ def _race_header(chunk: str, year_hint: str) -> tuple[dict[str, Any], str] | Non
             "良"
         ),
     }
-    return race, hm.group("raceid")
+    return race, dm.group("raceid")
 
 
 def parse_text(text: str, year_hint: str | None = None) -> list[dict[str, Any]]:
