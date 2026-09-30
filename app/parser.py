@@ -84,7 +84,7 @@ def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
     inside = dm.group("inside")
     course_re = "|".join(COURSES)
     modern = re.fullmatch(r"(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>" + course_re + r")", inside)
-    legacy = re.fullmatch(r"(?P<meeting>\d+)(?P<course>" + course_re + r")", inside)
+    legacy = re.fullmatch(r"(?P<era>\d+)(?P<course>" + course_re + r")(?P<meeting>\d+)", inside)
     if modern:
         year, meeting, course = modern.group("year"), modern.group("meeting"), modern.group("course")
     elif legacy:
