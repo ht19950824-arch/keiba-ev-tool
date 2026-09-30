@@ -19,8 +19,8 @@ permissions: {contents: write}
 env:
   PYTHONPATH: ${{ github.workspace }}
 concurrency:
-  group: keiba-bootstrap
-  cancel-in-progress: true
+  group: keiba-bootstrap-${{ github.run_id }}
+  cancel-in-progress: false
 jobs:
   smoke-parser:
     runs-on: ubuntu-latest
