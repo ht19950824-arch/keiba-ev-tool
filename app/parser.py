@@ -36,14 +36,14 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
         return None
     body = m.group("body")
     sm = re.search(
-        r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s+"
+        r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s*"
         r"(?P<weight>\d{2}(?:\.\d+)?)\s*",
         body,
     )
     if not sm:
         return None
     tail = body[sm.end():]
-    om = re.search(r"(?P<odds>\d{1,4}(?:[.．]\d)?)\s*$", tail)
+    om = re.search(r"\d{1,2}[:：]\d{2}[.．]\d\s+(?P<odds>\d{1,4}(?:[.．]\d+)?)\s*$", line)
     if not om:
         return None
     odds = num(om.group("odds"))
