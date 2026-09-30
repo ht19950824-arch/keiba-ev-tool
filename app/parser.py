@@ -33,7 +33,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not m:
         return None
     body = m.group("body")
-    sm = re.search(r"(?P<horse>.+?)\s+(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s]*\s+(?P<weight>\d{2}(?:\.\d+)?)\s+", body)
+    sm = re.search(r"(?P<horse>.+?)(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s]*\s+(?P<weight>\d{2}(?:\.\d+)?)\s+", body)
     if not sm:
         return None
     tail = body[sm.end():]
