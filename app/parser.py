@@ -137,7 +137,7 @@ def parse_text(text: str, year_hint: str | None = None) -> list[dict[str, Any]]:
     if year_hint is None:
         year_hint = "unknown"
 
-    chunks = re.split(r"(?=\d{5}\s*\d{1,2}月\s*\d{1,2}日)", text)
+    chunks = re.split(r"(?m)(?=^\s*\d{5}\s*\d{1,2}月\s*\d{1,2}日)", text)
     rows: list[dict[str, Any]] = []
 
     for chunk in chunks:
