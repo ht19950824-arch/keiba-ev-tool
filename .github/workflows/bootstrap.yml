@@ -34,6 +34,10 @@ jobs:
               print("\n--- PDFPLUMBER SAMPLE START ---")
               print(text[:5000])
               print("--- PDFPLUMBER SAMPLE END ---")
+              from app.parser import parse_text
+              rows = parse_text(text)
+              print("PARSER_ROWS=", len(rows))
+              print("PARSER_FIRST=", rows[:2])
           PY
   collect:
     runs-on: ubuntu-latest
