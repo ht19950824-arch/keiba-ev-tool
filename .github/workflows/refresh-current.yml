@@ -1,0 +1,66 @@
+name: refresh-current-keiba
+
+on:
+  workflow_dispatch:
+  schedule:
+    # JRA current entry publication is checked frequently on Thursdays.
+    # 09:00-18:00 JST = 00:00-09:00 UTC.
+    - cron: "*/30 0-9 * * 4"
+  push:
+    paths:
+      - ".github/workflows/refresh-current.yml"
+
+permissions:
+  contents: write
+
+env:
+  PYTHONPATH: ${{ github.workspace }}
+
+concurrency:
+  group: keiba-current-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Compile and test
+        run: |
+          python -m compileall -q app scripts
+          pytest -q
+      - name: Fetch current JRA entries
+        run: python scripts/collect_current_entries.py --out data/processed/current_entries.json
+      - name: Stop cleanly when entries are not published
+        id: gate
+        run: |
+          python - <<'PY'
+          import json, os
+          d=json.load(open("data/processed/current_entries.json",encoding="utf-8"))
+          published=bool(d.get("races")) and sum(len(r.get("rows",[])) for r in d.get("races",[]))>0
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write("published="+("true" if published else "false")+"\n")
+          print("published=",published)
+          PY
+      - name: Train and predict current races
+        if: steps.gate.outputs.published == 'true'
+        run: |
+          python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+          python scripts/predict_current.py             --entries data/processed/current_entries.json             --model data/processed/model/model.joblib             --history-glob "data/processed/runners_*.parquet"             --out web/data/current_predictions.json
+      - name: Keep public data empty before publication
+        if: steps.gate.outputs.published != 'true'
+        run: echo '[]' > web/data/current_predictions.json
+      - name: Publish refreshed data
+        run: |
+          git config user.name keiba-ev-bot
+          git config user.email actions@users.noreply.github.com
+          git add data/processed/current_entries.json web/data
+          git diff --cached --quiet || git commit -m "refresh current JRA entries and predictions"
+          git pull --rebase origin main
+          git push
