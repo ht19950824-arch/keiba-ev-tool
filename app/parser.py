@@ -63,7 +63,14 @@ def parse_text(text: str) -> list[dict[str, Any]]:
     chunks = re.split(r"(?=\b\d{5}\s+\d+月\s*\d+日)", text)
     rows = []
     for chunk in chunks:
-        hm = re.search(r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s+第\d+日\s+第(?P<raceno>\d+)競走.*?(?P<distance>[\d,]+)\s*[ｍm]", chunk, re.S)
+        hm = re.search(
+            r"(?P<raceid>\d{5})\s+(?P<month>\d+)月\s*(?P<day>\d+)日.*?"
+            r"（(?P<year>\d{4})年(?P<meeting>\d+)(?P<course>[^）]+)）\s+"
+            r"第\d+日\s+第(?P<raceno>\d+)競走.*?"
+            r"(?P<distance>[\d,]{3,5})\s*[^\d\n]{0,4}\n",
+            chunk,
+            re.S,
+        )
         if not hm:
             continue
         race = {
