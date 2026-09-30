@@ -31,7 +31,7 @@ function render(){
  if(!keys.length){document.querySelector("#list").innerHTML='<div class="card empty">'+(rows.length?'条件に一致するデータがありません。':'JRAの最新出馬表がまだ公開されていません。公開後に自動更新されます。')+'</div>';return}
  document.querySelector("#list").innerHTML=keys.slice(0,40).map(k=>{
   const g=groups[k], first=g[0];
-  return '<section class="card"><div class="racehead"><h2>'+first.race_key+'</h2><span class="tag">'+g.length+'頭</span></div>'+g.slice(0,8).map(r=>'<div class="horse"><div class="num">'+r.post+'</div><div><b>'+r.horse+'</b><div class="sub">単勝 '+(r.odds??'-')+' / 公正 '+(r.fair_odds?Number(r.fair_odds).toFixed(1):'-')+'</div></div><div class="ev">'+(r.expected_value?Number(r.expected_value).toFixed(2):'-')+'</div></div>').join('')+'</section>'
+  return '<section class="card"><div class="racehead"><h2>'+(first.race_label||first.race_key)+'</h2><span class="tag">'+g.length+'頭</span></div>'+g.slice(0,8).map(r=>'<div class="horse"><div class="num">'+(r.post??"—")+'</div><div><b>'+r.horse+'</b><div class="sub">単勝 '+(r.odds??'-')+' / 公正 '+(r.fair_odds?Number(r.fair_odds).toFixed(1):'-')+'</div></div><div class="ev">'+(r.expected_value?Number(r.expected_value).toFixed(2):'-')+'</div></div>').join('')+'</section>'
  }).join("");
 }
 document.querySelector("#filter").addEventListener("change",render);loadData();
