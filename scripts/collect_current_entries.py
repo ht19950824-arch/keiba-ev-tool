@@ -144,6 +144,6 @@ def main(out):
             if parsed: races.append({"url":item["url"],"label":item["text"],**parsed})
         except Exception as e: print(f"WARN {item['url']}: {e}")
         print(f"[{i}/{len(links)}]")
-    out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps({"source":BASE,"fetched_at":pd.Timestamp.now(tz="Asia/Tokyo").isoformat(),"status":"published" if races else "not_published_or_no_entries","races":races},ensure_ascii=False,indent=2),encoding="utf-8"); print(f"races={len(races)}")
+    out.parent.mkdir(parents=True,exist_ok=True); status="published" if races else "not_published_or_no_entries"; out.write_text(json.dumps({"source":BASE,"fetched_at":pd.Timestamp.now(tz="Asia/Tokyo").isoformat(),"status":status,"race_count":len(races),"row_count":sum(len(r.get("rows",[])) for r in races),"races":races},ensure_ascii=False,indent=2),encoding="utf-8"); print(f"status={status} races={len(races)} rows={sum(len(r.get("rows",[])) for r in races)}")
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("--out",default="data/processed/current_entries.json"); a=ap.parse_args(); main(Path(a.out))
