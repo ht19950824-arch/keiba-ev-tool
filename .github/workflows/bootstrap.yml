@@ -3,6 +3,7 @@ name: bootstrap-keiba-history
 # Parser validation pass
 # Final parser retry
 # Add parser smoke diagnostic
+# Layout extraction validation
 # CID digit decoding pass
 on:
   workflow_dispatch:
