@@ -51,12 +51,13 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
-    if diff in ("±","―","ー","±0","0"):
+    digits = re.sub(r"[^0-9]", "", diff)
+    if not digits:
         hw_diff = 0
-    elif diff.startswith(("－","-","−")):
-        hw_diff = -int(re.sub(r"[^0-9]","",diff))
+    elif diff.startswith(("－", "-", "−")):
+        hw_diff = -int(digits)
     else:
-        hw_diff = int(re.sub(r"[^0-9]","",diff))
+        hw_diff = int(digits)
     return {
         "bracket": int(m.group("bracket")), "post": int(m.group("post")),
         "horse": sm.group("horse").strip(), "sex": sm.group("sex"),
