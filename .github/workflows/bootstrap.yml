@@ -1,6 +1,8 @@
 name: bootstrap-keiba-history
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   schedule:
     - cron: '15 18 * * *'
   push:
@@ -20,6 +22,7 @@ concurrency:
 
 jobs:
   collect:
+    if: ${{ github.event_name != 'issues' || startsWith(github.event.issue.title, 'BOOTSTRAP') }}
     strategy:
       fail-fast: false
       matrix:
