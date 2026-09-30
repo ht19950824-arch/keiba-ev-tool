@@ -5,6 +5,7 @@ name: bootstrap-keiba-history
 # Add parser smoke diagnostic
 # Layout extraction validation
 # Runner spacing fix validation
+# Final spacing correction
 # CID digit decoding pass
 on:
   workflow_dispatch:
