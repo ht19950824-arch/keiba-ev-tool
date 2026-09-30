@@ -3,11 +3,26 @@ import numpy as np
 import pandas as pd
 
 def _prior_rate(x, keys, target, alpha=1.0, beta=9.0):
-    g=x.groupby(keys,dropna=False,sort=False)[target]
-    prior_sum=g.transform(lambda s:s.shift().fillna(0).cumsum())
-    prior_n=g.transform(lambda s:s.shift().notna().cumsum())
-    return (prior_sum+alpha)/(prior_n+alpha+beta)
-
+    # Exclude the entire current race from historical aggregates. This prevents
+    # multi-horse races (especially trainer/course aggregates) from leaking
+    # earlier finish results into later rows of the same race.
+    if "race_key" not in x.columns:
+        g=x.groupby(keys,dropna=False,sort=False)[target]
+        prior_sum=g.transform(lambda s:s.shift().fillna(0).cumsum())
+        prior_n=g.transform(lambda s:s.shift().notna().cumsum())
+        return (prior_sum+alpha)/(prior_n+alpha+beta)
+    work=x.copy()
+    race_cols=list(dict.fromkeys(list(keys)+["race_key"]))
+    race=work.groupby(race_cols,dropna=False,sort=False)[target].agg(["sum","count"]).reset_index()
+    race=race.sort_values(["race_key"],kind="stable")
+    grouped=race.groupby(keys,dropna=False,sort=False)
+    race["prior_sum"]=grouped["sum"].cumsum()-race["sum"]
+    race["prior_n"]=grouped["count"].cumsum()-race["count"]
+    rate=(race["prior_sum"]+alpha)/(race["prior_n"]+alpha+beta)
+    lookup=race[race_cols].copy()
+    lookup["_rate"]=rate.to_numpy()
+    merged=work[race_cols].merge(lookup,on=race_cols,how="left",sort=False)
+    return pd.Series(merged["_rate"].to_numpy(),index=x.index)
 def add_historical_features(df):
     x=df.copy()
     x["race_date"]=pd.to_datetime(x["race_date"],errors="coerce")
