@@ -1,0 +1,2023 @@
+{
+  "year": 2017,
+  "source": "https://www.jra.go.jp/datafile/seiseki/report/2017.html",
+  "links": [
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1sapporo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hakodate6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1fukushima6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1niigata8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1tokyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1nakayama7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1chukyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kyoto7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1hanshin8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-1kokura8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2sapporo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hakodate6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2fukushima8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata10.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata11.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2niigata12.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo10.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo11.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2tokyo12.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2nakayama8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2chukyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kyoto8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2hanshin8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura10.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura11.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-2kokura12.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3fukushima6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3niigata6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3tokyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3nakayama8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3chukyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto10.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto11.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3kyoto12.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-3hanshin8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4tokyo9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4nakayama9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4chukyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "kyoto",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4kyoto9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-4hanshin9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5tokyo8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5nakayama9.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5kyoto8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin1.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin2.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin3.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin4.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin5.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin6.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin7.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin8.pdf"
+    },
+    {
+      "year": 2017,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2017/2017-5hanshin9.pdf"
+    }
+  ],
+  "count": 288
+}

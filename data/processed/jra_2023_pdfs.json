@@ -1,0 +1,2023 @@
+{
+  "year": 2023,
+  "source": "https://www.jra.go.jp/datafile/seiseki/report/2023.html",
+  "links": [
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "sapporo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1sapporo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hakodate",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hakodate6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1fukushima6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "niigata",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1niigata8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1tokyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1nakayama8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo10.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo11.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "chukyo",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1chukyo12.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto10.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto11.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kyoto",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kyoto12.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin10.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin11.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "hanshin",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1hanshin12.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 1,
+      "course": "kokura",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-1kokura8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "sapporo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2sapporo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hakodate",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hakodate6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "fukushima",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2fukushima8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2niigata1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2niigata2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2niigata3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2niigata4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 10,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo10.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 11,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo11.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "tokyo",
+      "day": 12,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2tokyo12.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2nakayama8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2chukyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kyoto",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kyoto9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2hanshin8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 2,
+      "course": "kokura",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-2kokura6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "fukushima",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3fukushima6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "niigata",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3niigata8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3tokyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3nakayama8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "chukyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3chukyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kyoto",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kyoto8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3hanshin8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 3,
+      "course": "kokura",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-3kokura8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "niigata",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4niigata6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "tokyo",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4tokyo9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "nakayama",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4nakayama9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "chukyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4chukyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 4,
+      "course": "hanshin",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-4hanshin9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "tokyo",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5tokyo8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "nakayama",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5nakayama9.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 1,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin1.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 2,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin2.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 3,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin3.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 4,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin4.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 5,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin5.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 6,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin6.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 7,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin7.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 8,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin8.pdf"
+    },
+    {
+      "year": 2023,
+      "meeting": 5,
+      "course": "hanshin",
+      "day": 9,
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2023/2023-5hanshin9.pdf"
+    }
+  ],
+  "count": 288
+}
