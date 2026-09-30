@@ -9,7 +9,7 @@ JP_NUM = str.maketrans("０１２３４５６７８９．，", "0123456789.,")
 def norm(s: str) -> str:
     # pdfplumber may emit control-marker glyphs (e.g. \\x02, \\x03) around
     # odds, symbols, etc. Remove those markers while preserving line breaks.
-    s = re.sub(r"[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]", " ", s)
+    s = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", " ", s)
     return s.translate(JP_NUM).replace("\u3000", " ").strip()
 
 def num(s: str | None) -> float | None:
