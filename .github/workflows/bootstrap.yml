@@ -44,8 +44,12 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           pattern: processed-*
-          path: data/processed
+          path: data/processed/artifacts
           merge-multiple: true
+      - name: Normalize downloaded artifacts
+        run: |
+          find data/processed/artifacts -type f -name 'runners_*.parquet' -exec cp {} data/processed/ \;
+          find data/processed/artifacts -type f -name 'jra_*_pdfs.json' -exec cp {} data/processed/ \;
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -r requirements.txt
