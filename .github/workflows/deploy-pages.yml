@@ -6,7 +6,7 @@ on:
       - 'web/**'
       - '.github/workflows/deploy-pages.yml'
   workflow_run:
-    workflows: [bootstrap-keiba-history, update-keiba-data]
+    workflows: [bootstrap-keiba-history, refresh-current-keiba, update-keiba-data]
     types: [completed]
 permissions:
   contents: read
