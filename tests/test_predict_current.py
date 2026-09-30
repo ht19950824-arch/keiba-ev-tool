@@ -45,3 +45,18 @@ def test_predraw_field_size_is_counted_per_race():
     out = build_current(current, history)
     assert set(out["field_size"]) == {2}
     assert all(np.isnan(out["post"]))
+
+
+def test_predraw_missing_meeting_no_is_safe():
+    current = pd.DataFrame([{
+        "馬名": "テストホース", "性齢": "牡4", "負担重量": "57", "騎手": "J1",
+        "調教師": "T1", "単勝オッズ": "5.0", "race_date": "2026-10-04",
+        "course": "東京", "distance": 1800, "surface": "芝", "race_no": 11,
+    }])
+    history = pd.DataFrame([{
+        "race_date": "2026-09-20", "horse": "X", "finish": 1, "course": "東京",
+        "distance": 1800, "surface": "芝", "track_condition": "良",
+        "jockey": "J0", "trainer": "T0",
+    }])
+    out = build_current(current, history)
+    assert out.loc[0, "meeting_no"] == "unknown"
