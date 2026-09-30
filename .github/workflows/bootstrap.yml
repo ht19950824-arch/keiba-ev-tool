@@ -1,5 +1,6 @@
 name: bootstrap-keiba-history
 # Re-run bootstrap after data pipeline fixes
+# Parser validation pass
 on:
   workflow_dispatch:
   push:
