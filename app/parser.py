@@ -31,20 +31,24 @@ def extract_text(path: str | Path) -> str:
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
     line = norm(line).rstrip()
-    # JRA result PDFs explicitly provide 着順, followed by 枠・馬番.
-    # Do not infer finish order from parsed-row order.
+    # Current JRA result PDFs normally start with 枠番・馬番.
+    # Some older/test fixtures include explicit 着順 before them.
     m = re.match(r"^(?:(?P<finish>\d{1,2})\s+)?(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
-    body = m.group("body")
 
-    # Parse from the right edge first. JRA result PDFs use both 58.7 and 1:46.6
-    # time formats, and horse-weight/time fields can touch (e.g. 460+2 1:46.6).
+    body = m.group("body")
+    # If a third leading integer is present, support the explicit 着順/枠/馬番 layout.
+    explicit_finish = None
+    if m.group("finish") is not None:
+        explicit_finish = int(m.group("finish"))
+
     odds_m = re.search(r"(?P<odds>\d{1,4}(?:\.\d+)?)\s*$", body)
     if not odds_m:
         return None
     odds = num(odds_m.group("odds"))
     before_odds = body[:odds_m.start()].rstrip()
+
     time_m = re.search(
         r"(?<![\d:])(?P<time>\d{1,2}:\d{2}\.\d|\d{1,2}\.\d)\s*.*$",
         before_odds,
@@ -54,26 +58,29 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     time_text = time_m.group("time")
     prefix = before_odds[:time_m.start()].rstrip()
 
-    # Horse weight and change are the final weight-like token before the finish time.
-    wm = re.search(r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-]\s*\d{1,2}))?\s*$", prefix)
+    wm = re.search(
+        r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-]\s*\d{1,2}))?\s*$",
+        prefix,
+    )
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
     digits = re.sub(r"[^0-9]", "", diff)
     hw_diff = 0 if not digits else (-int(digits) if diff.startswith(("－", "-", "−")) else int(digits))
 
-    # The horse identity/sex/age/assigned weight appear before jockey and other metadata.
-    identity = body[:wm.start()].strip()
-    sm = re.search(
-        r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s*"
-        r"(?P<weight>\d{2}(?:\.\d+)?)\s*$",
-        identity,
+    # The assigned weight is near the start of the row, immediately after sex/age/color.
+    head = body[:]
+    sm = re.match(
+        r"(?P<horse>.+?)\s+(?P<sex>[牡牝セ])(?P<age>\d{1,2})"
+        r"(?P<color>黒鹿|青鹿|栃栗|栗|鹿|芦|青|白)?\s*"
+        r"(?P<weight>\d{2}(?:\.\d+)?)\s+",
+        head,
     )
     if not sm:
         return None
 
     return {
-        "finish": int(m.group("finish")) if m.group("finish") else None,
+        "finish": explicit_finish,
         "bracket": int(m.group("bracket")),
         "post": int(m.group("post")),
         "horse": sm.group("horse").strip(),
@@ -85,6 +92,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
         "time": time_text.replace("：", ":").replace("．", "."),
         "odds": odds,
     }
+
 
 def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
     lines = [norm(x) for x in chunk.splitlines() if norm(x)]
