@@ -39,3 +39,29 @@ def test_parse_2018_era_header():
     assert rows[0]["race_date"]=="2018-10-08"
     assert rows[0]["distance"]==1800
     assert rows[0]["course"]=="京都"
+
+
+def test_parse_under_one_minute_result_time():
+    text='''21001 7月25日 曇良 （2026年1札幌） 第1日 第1競走 3歳未勝利 1，000ｍ
+発走10時00分 （ダート・右）
+7 7 カレンココナ 牝3栗 55 52 ▲小林 美駒 鈴木 隆司氏 小林 真也 日高 高柳 隆男 434－2 58．7 3．8
+'''
+    rows=parse_text(text)
+    assert len(rows)==1
+    assert rows[0]["time"]=="58.7"
+    assert rows[0]["horse_weight"]==434
+    assert rows[0]["horse_weight_diff"]==-2
+    assert rows[0]["odds"]==3.8
+
+
+def test_parse_time_touching_horse_weight():
+    text='''21003 7月25日 曇良 （2026年1札幌） 第1日 第3競走 3歳未勝利 1，700ｍ
+発走11時00分 （ダート・右）
+3 3 ヤマメイッカ 牡3鹿 57 佐々木大輔 越村 哲男氏 久保田貴士 千歳 社台ファーム B500＋4 1：46．6 2．4
+'''
+    rows=parse_text(text)
+    assert len(rows)==1
+    assert rows[0]["time"]=="1:46.6"
+    assert rows[0]["horse_weight"]==500
+    assert rows[0]["horse_weight_diff"]==4
+    assert rows[0]["odds"]==2.4
