@@ -8,6 +8,10 @@ from scripts.backtest import evaluate
 def load_years(processed,years):
     frames=[]
     for y in years:
+        direct=processed / f"runners_{y}.parquet"
+        if direct.exists():
+            frames.append(pd.read_parquet(direct))
+            continue
         matches=list(processed.rglob(f"runners_{y}.parquet"))
         if matches:
             frames.append(pd.read_parquet(matches[0]))
