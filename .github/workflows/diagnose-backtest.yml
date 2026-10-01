@@ -23,3 +23,4 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Run strict chronological diagnostics
         run: python scripts/diagnose_backtest.py --test-year 2026 --min-ev 1.20 --min-odds 3.0
+# retry trigger
