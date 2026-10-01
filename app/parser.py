@@ -58,7 +58,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     before_odds = body[:odds_m.start()].rstrip()
 
     time_m = re.search(
-        r"(?<![\d:])(?P<time>\d{1,2}:\d{2}\.\d|\d{1,2}\.\d)\s*.*$",
+        r"(?P<time>\d{1,2}:\d{2}\.\d|\d{1,2}\.\d)\s*.*$",
         before_odds,
     )
     if not time_m:
