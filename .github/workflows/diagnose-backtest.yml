@@ -47,3 +47,4 @@ jobs:
           else
             gh issue comment 16 --body "Diagnostic did not produce output."
           fi
+# force diagnostic rerun
