@@ -65,3 +65,17 @@ def test_parse_time_touching_horse_weight():
     assert rows[0]["horse_weight"]==500
     assert rows[0]["horse_weight_diff"]==4
     assert rows[0]["odds"]==2.4
+
+
+def test_parse_explicit_finish_is_not_inferred_from_row_order():
+    text='''03056 2月15日 晴 良 （2026年1東京） 第6日 第6競走 1，300ｍ
+発走10時05分 （ダート・左）
+2 1 4 Beta 牝3鹿 55 吉田 豊 厩舎A 460＋2 1：19．1 4．1
+1 2 7 Alpha 牡3栗 57 R．キング 厩舎B 480 1：18．1 3．6
+'''
+    rows=parse_text(text)
+    assert len(rows)==2
+    assert rows[0]["finish"]==2
+    assert rows[0]["post"]==4
+    assert rows[1]["finish"]==1
+    assert rows[1]["post"]==7
