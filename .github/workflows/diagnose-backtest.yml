@@ -7,6 +7,9 @@ on:
     paths:
       - 'scripts/diagnose_backtest.py'
       - '.github/workflows/diagnose-backtest.yml'
+  workflow_run:
+    workflows: [bootstrap-keiba-history]
+    types: [completed]
 permissions:
   contents: read
   issues: write
@@ -14,7 +17,7 @@ env:
   PYTHONPATH: ${{ github.workspace }}
 jobs:
   diagnose:
-    if: ${{ github.event_name != 'issues' || startsWith(github.event.issue.title, 'DIAGNOSE') }}
+    if: ${{ (github.event_name != 'issues' || startsWith(github.event.issue.title, 'DIAGNOSE')) && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
