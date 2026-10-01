@@ -19,6 +19,10 @@ def ingest_year(year,raw,processed,db):
     raw_df=pd.DataFrame(rows)
     raw_df=raw_df.drop_duplicates(["race_key","post"],keep="first").reset_index(drop=True)
     df=compute_track_bias(add_features(raw_df))
+    race_sizes=df.groupby("race_key").size()
+    incomplete_share=float((race_sizes < 5).mean()) if len(race_sizes) else 1.0
+    if incomplete_share > 0.10:
+        raise RuntimeError(f"Too many incomplete races: share_lt5={incomplete_share:.3f}, races={len(race_sizes)}")
     race_cols=["race_key","race_date","course","meeting_no","race_no","surface","distance","track_condition","field_size"]
     races=df[race_cols].drop_duplicates("race_key")
     drop_cols=["race_date","course","meeting_no","day_no","race_no","surface","distance","track_condition","field_size"]
