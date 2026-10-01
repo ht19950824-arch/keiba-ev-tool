@@ -9,152 +9,63 @@ UA="Mozilla/5.0 (compatible; KeibaEVTool/0.4; respectful-low-rate-fetch)"
 BASE="https://www.jra.go.jp/"
 def links_from_homepage(session):
     r=session.get(BASE,headers={"User-Agent":UA},timeout=30); r.raise_for_status()
-    soup=BeautifulSoup(r.text,"html.parser"); seen=set(); links=[]
-
-    # Explicitly follow JRA's current syutsuba pages exposed from the homepage.
+    soup=BeautifulSoup(r.text,"html.parser"); links=[]
+    def add(href,text=""):
+        href=urljoin(BASE,href)
+        if "accessD.html?CNAME=" in href: links.append({"url":href,"text":text})
     for a in soup.select('a[href]'):
         href=urljoin(BASE,a.get("href",""))
-        if href.endswith("/syutsuba.html") and "/keiba/race/" in href:
+        if "/keiba/race/" in href and ("syutsuba" in href or "accessD" in href):
             try:
                 pr=session.get(href,headers={"User-Agent":UA},timeout=30)
                 if pr.ok:
                     ps=BeautifulSoup(pr.text,"html.parser")
-                    for x in ps.select('a[href]'):
-                        h=x.get("href","")
-                        if "accessD.html?CNAME=" in h:
-                            links.append({"url":urljoin(BASE,h),"text":x.get_text(" ",strip=True)})
-                    for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I):
-                        u=urljoin(BASE,f"/JRADB/accessD.html?CNAME={m.group(1)}")
-                        if u not in {z["url"] for z in links}: links.append({"url":u,"text":""})
-            except Exception as e:
-                print(f"WARN current syutsuba {href}: {e}")
-
-    def add(href, text=""):
-        href=urljoin(BASE,href)
-        if "accessD.html?CNAME=" not in href or href in seen:
-            return
-        seen.add(href)
-        links.append({"url":href,"text":text})
-
-    # Directly probe the current week's public entry pages for the two Sunday feature pages.
-    # JRA may expose these pages without linking them from the homepage navigation.
+                    for x in ps.select('a[href*="accessD.html?CNAME="]'): add(x.get("href",""),x.get_text(" ",strip=True))
+                    for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I): add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
+            except Exception as e: print(f"WARN race-page {href}: {e}")
     for direct in ("/keiba/race/090/syutsuba.html","/keiba/race/091/syutsuba.html"):
-        href=urljoin(BASE,direct)
         try:
-            pr=session.get(href,headers={"User-Agent":UA},timeout=30)
+            pr=session.get(urljoin(BASE,direct),headers={"User-Agent":UA},timeout=30)
             if pr.ok:
                 ps=BeautifulSoup(pr.text,"html.parser")
-                for link in ps.select('a[href]'):
-                    h=link.get("href","")
-                    if "accessD.html?CNAME=" in h:
-                        links.append({"url":urljoin(BASE,h),"text":link.get_text(" ",strip=True)})
-                for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I):
-                    u=urljoin(BASE,f"/JRADB/accessD.html?CNAME={m.group(1)}")
-                    if u not in {z["url"] for z in links}: links.append({"url":u,"text":""})
-        except Exception as e:
-            print(f"WARN direct syutsuba {href}: {e}")
-
-    # Ordinary links.
-    for a in soup.select('a[href*="accessD.html?CNAME="]'):
-        add(a.get("href",""), a.get_text(" ",strip=True))
-
-    # Follow JRA's public "this week's races" / entry-table pages as a fallback.
-    for a in soup.select('a[href]'):
-        href=urljoin(BASE,a.get("href",""))
-        if "/keiba/race/" in href and "syutsuba.html" in href:
-            try:
-                pr=session.get(href,headers={"User-Agent":UA},timeout=30)
-                if pr.ok:
-                    psoup=BeautifulSoup(pr.text,"html.parser")
-                    for link in psoup.select('a[href]'):
-                        h=link.get("href","")
-                        if "accessD.html?CNAME=" in h:
-                            add(h,link.get_text(" ",strip=True))
-                    for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I):
-                        add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
-            except Exception as e:
-                print(f"WARN syutsuba-page {href}: {e}")
-
-    # Also follow JRA race/entry pages when the homepage does not expose accessD links directly.
-    # These pages can contain the current accessD URLs after publication.
-    page_links=[]
-    for a in soup.select('a[href]'):
-        href=urljoin(BASE,a.get("href",""))
-        if "/keiba/race/" in href and ("syutsuba" in href or "accessD" in href):
-            page_links.append(href)
-    for page_url in dict.fromkeys(page_links):
-        try:
-            pr=session.get(page_url,headers={"User-Agent":UA},timeout=30)
-            if pr.ok:
-                psoup=BeautifulSoup(pr.text,"html.parser")
-                for a in psoup.select('a[href*="accessD.html?CNAME="]'):
-                    add(a.get("href",""), a.get_text(" ",strip=True))
-                # Search page source as well because some JRA navigation is generated by script.
-                for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)', pr.text, flags=re.I):
-                    add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
-        except Exception as e:
-            print(f"WARN race-page {page_url}: {e}")
-
-    # JRA also exposes current-race navigation through JavaScript actions.
-    html=r.text
-    patterns=[
-        r'accessD\.html\?CNAME=([^\'"]+)',
-        r'accessD\.html[^\n]{0,300}?[Cc][Nn][Aa][Mm][Ee]=([^\'"]+)',
-        r'(?:doAction|do_action)\s*\(\s*[\'"](?:/)?JRADB/accessD\.html[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]',
-        r'(?:doAction|do_action)\s*\(\s*[\'"](?:accessD\.html)[\'"]\s*,\s*[\'"]([^\'"]+)[\'"]',
+                for x in ps.select('a[href*="accessD.html?CNAME="]'): add(x.get("href",""),x.get_text(" ",strip=True))
+                for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I): add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
+        except Exception as e: print(f"WARN direct syutsuba {direct}: {e}")
+    # JRA's public DB selector exposes the complete current meeting/day navigation
+    # even when the feature-page syutsuba notice still says "scheduled".
+    seeds=[
+        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0105202604020920261004%2F1B",
+        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0108202604020920261004%2FF9",
     ]
-    for pat in patterns:
-        for m in re.finditer(pat, html, flags=re.I):
-            value=m.group(1)
-            if value.startswith("http"):
-                add(value)
-            elif value.startswith("pw"):
-                add(f"/JRADB/accessD.html?CNAME={value}")
-            else:
-                add(f"/JRADB/accessD.html?CNAME={value}")
-
-    # Some pages put the action in data-* attributes or onclick handlers.
-    for tag in soup.find_all(True):
-        blob=" ".join(str(tag.get(k,"")) for k in ("onclick","data-action","data-url","data-href"))
-        if "accessD.html" in blob:
-            for m in re.finditer(r'(?:CNAME=)?(pw01dde[^\'";,)<>\s]+)', blob, flags=re.I):
-                add(f"/JRADB/accessD.html?CNAME={m.group(1)}", tag.get_text(" ",strip=True))
-    unique=[]
-    seen_urls=set()
+    seeds += list(dict.fromkeys(x["url"] for x in links))
+    for seed in dict.fromkeys(seeds):
+        try:
+            pr=session.get(seed,headers={"User-Agent":UA},timeout=30)
+            if pr.ok:
+                ps=BeautifulSoup(pr.text,"html.parser")
+                for x in ps.select('a[href*="accessD.html?CNAME="]'): add(x.get("href",""),x.get_text(" ",strip=True))
+                for m in re.finditer(r'accessD\.html\?CNAME=([^\'"]+)',pr.text,flags=re.I): add(f"/JRADB/accessD.html?CNAME={m.group(1)}")
+        except Exception as e: print(f"WARN accessD seed {seed}: {e}")
+    unique=[]; seen=set()
     for item in links:
-        if item["url"] not in seen_urls:
-            seen_urls.add(item["url"])
-            unique.append(item)
+        if item["url"] not in seen: seen.add(item["url"]); unique.append(item)
     return unique
 def parse_page(session,url):
     r=session.get(url,headers={"User-Agent":UA},timeout=30); r.raise_for_status()
-    soup=BeautifulSoup(r.text,"html.parser"); page_text=soup.get_text(" ",strip=True)
-    tables=pd.read_html(r.text); target=None
-    for t in tables:
-        # JRA entry tables can be emitted as a MultiIndex. Flatten every
-        # column before matching so publication-time layout changes do not
-        # make the collector silently return zero races.
-        if hasattr(t.columns, "levels"):
+    soup=BeautifulSoup(r.text,"html.parser"); page_text=soup.get_text(" ",strip=True); target=None
+    for t in pd.read_html(r.text):
+        if hasattr(t.columns,"levels"):
             flat=[]
             for col in t.columns:
-                parts=[str(v).strip() for v in (col if isinstance(col, tuple) else (col,)) if str(v).strip() not in ("","nan")]
+                parts=[str(v).strip() for v in (col if isinstance(col,tuple) else (col,)) if str(v).strip() not in ("","nan")]
                 flat.append(" ".join(parts))
             t=t.copy(); t.columns=flat
-        cols=" ".join(str(c) for c in t.columns)
-        if "馬名" in cols and "騎手" in cols:
-            target=t
-            break
+        if "馬名" in " ".join(map(str,t.columns)) and "騎手" in " ".join(map(str,t.columns)): target=t; break
     if target is None:
-        # Last-resort DOM table parsing: some JRA layouts expose the labels
-        # in nested headers that pandas does not preserve.
         for table in soup.find_all("table"):
-            text=" ".join(table.stripped_strings)
-            if "馬名" in text and "騎手" in text:
-                try:
-                    target=pd.read_html(str(table))[0]
-                    break
-                except Exception:
-                    pass
+            if "馬名" in " ".join(table.stripped_strings) and "騎手" in " ".join(table.stripped_strings):
+                try: target=pd.read_html(str(table))[0]; break
+                except Exception: pass
     if target is None: return None
     target=target.copy(); target.columns=[str(c) for c in target.columns]; out=[]
     for _,row in target.iterrows():
@@ -172,6 +83,8 @@ def main(out):
             if parsed: races.append({"url":item["url"],"label":item["text"],**parsed})
         except Exception as e: print(f"WARN {item['url']}: {e}")
         print(f"[{i}/{len(links)}]")
-    out.parent.mkdir(parents=True,exist_ok=True); status="published" if races else "not_published_or_no_entries"; out.write_text(json.dumps({"source":BASE,"fetched_at":pd.Timestamp.now(tz="Asia/Tokyo").isoformat(),"status":status,"race_count":len(races),"row_count":sum(len(r.get("rows",[])) for r in races),"races":races},ensure_ascii=False,indent=2),encoding="utf-8"); print(f"status={status} races={len(races)} rows={sum(len(r.get("rows",[])) for r in races)}")
+    out.parent.mkdir(parents=True,exist_ok=True); status="published" if races else "not_published_or_no_entries"
+    payload={"source":BASE,"fetched_at":pd.Timestamp.now(tz="Asia/Tokyo").isoformat(),"status":status,"race_count":len(races),"row_count":sum(len(r.get("rows",[])) for r in races),"races":races}
+    out.write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8"); print(f"status={status} races={len(races)} rows={sum(len(r.get('rows',[])) for r in races)}")
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); ap.add_argument("--out",default="data/processed/current_entries.json"); a=ap.parse_args(); main(Path(a.out))
