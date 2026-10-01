@@ -93,6 +93,20 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - name: Validate race completeness
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+          for year in range(2017, 2027):
+              p=Path(f"data/processed/runners_{year}.parquet")
+              df=pd.read_parquet(p, columns=["race_key"])
+              sizes=df.groupby("race_key").size()
+              share=float((sizes < 5).mean()) if len(sizes) else 1.0
+              print(f"year={year} rows={len(df)} races={len(sizes)} min={int(sizes.min()) if len(sizes) else 0} median={float(sizes.median()) if len(sizes) else 0} share_lt5={share:.4f}")
+              if len(sizes) < 100 or share > 0.10:
+                  raise SystemExit(f"Invalid runner coverage for {year}: races={len(sizes)} share_lt5={share:.4f}")
+          PY
       - run: python scripts/collect_current_entries.py --out data/processed/current_entries.json
       - name: Verify current entries
         run: |
