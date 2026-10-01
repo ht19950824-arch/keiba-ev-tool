@@ -31,7 +31,9 @@ def extract_text(path: str | Path) -> str:
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
     line = norm(line).rstrip()
-    m = re.match(r"^(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
+    # JRA result PDFs explicitly provide 着順, followed by 枠・馬番.
+    # Do not infer finish order from parsed-row order.
+    m = re.match(r"^(?P<finish>\d{1,2})\s+(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
     body = m.group("body")
@@ -71,6 +73,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
         return None
 
     return {
+        "finish": int(m.group("finish")),
         "bracket": int(m.group("bracket")),
         "post": int(m.group("post")),
         "horse": sm.group("horse").strip(),
@@ -147,9 +150,7 @@ def parse_text(text: str, year_hint: str | None = None) -> list[dict[str, Any]]:
             p = _parse_runner_line(line)
             if p:
                 runners.append({**race, **p})
-        for finish, row in enumerate(runners, 1):
-            row["finish"] = finish
-            rows.append(row)
+        rows.extend(runners)
     return rows
 
 
