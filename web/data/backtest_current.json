@@ -1,13 +1,13 @@
 {
-  "bets": 346,
+  "bets": 342,
   "races": 278,
-  "stake": 346.0,
-  "return": 13149.8,
-  "roi": 38.00520231213873,
-  "hit_rate": 0.7803468208092486,
-  "market_implied_hit_rate": 0.08405383246525426,
-  "hit_rate_minus_market": 0.6962929883439943,
+  "stake": 342.0,
+  "return": 13142.3,
+  "roi": 38.42777777777778,
+  "hit_rate": 0.783625730994152,
+  "market_implied_hit_rate": 0.08249868192198982,
+  "hit_rate_minus_market": 0.7011270490721622,
   "max_bets_per_race": 4,
-  "brier_score": 0.08867574815819836,
+  "brier_score": 0.08280606748919966,
   "quality_warning": true
 }
