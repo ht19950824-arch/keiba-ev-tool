@@ -33,15 +33,23 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     line = norm(line).rstrip()
     # Current JRA result PDFs normally start with 枠番・馬番.
     # Some older/test fixtures include explicit 着順 before them.
-    m = re.match(r"^(?:(?P<finish>\d{1,2})\s+)?(?P<bracket>[1-8])\s*(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
+    m = re.match(r"^(?P<bracket>[1-8])\s+(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
 
+    bracket = int(m.group("bracket"))
+    post = int(m.group("post"))
     body = m.group("body")
-    # If a third leading integer is present, support the explicit 着順/枠/馬番 layout.
+    # Legacy/test fixtures may use 着順・枠・馬番 at the start.
+    # Detect this only when the third token is numeric, avoiding ambiguity for
+    # two-digit horse numbers such as 10-18.
     explicit_finish = None
-    if m.group("finish") is not None:
-        explicit_finish = int(m.group("finish"))
+    legacy = re.match(r"^(?P<finish>\d{1,2})\s+(?P<legacy_horse>.+)$", body)
+    if legacy and re.match(r"^[^\s]+\s+[牡牝セ]\d", legacy.group("legacy_horse")):
+        explicit_finish = int(legacy.group("finish"))
+        post = int(legacy.group("finish"))
+        bracket = int(m.group("post"))
+        body = legacy.group("legacy_horse")
 
     odds_m = re.search(r"(?P<odds>\d{1,4}(?:\.\d+)?)\s*$", body)
     if not odds_m:
