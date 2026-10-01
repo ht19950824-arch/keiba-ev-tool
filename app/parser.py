@@ -35,25 +35,41 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     if not m:
         return None
     body = m.group("body")
-    sm = re.search(
-        r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s*"
-        r"(?P<weight>\d{2}(?:\.\d+)?)\s*",
-        body,
+
+    # Parse from the right edge first. JRA result PDFs use both 58.7 and 1:46.6
+    # time formats, and horse-weight/time fields can touch (e.g. 460+2 1:46.6).
+    odds_m = re.search(r"(?P<odds>\d{1,4}(?:\.\d+)?)\s*$", body)
+    if not odds_m:
+        return None
+    odds = num(odds_m.group("odds"))
+    before_odds = body[:odds_m.start()].rstrip()
+    time_m = re.search(
+        r"(?<![\d:])(?P<time>\d{1,2}:\d{2}\.\d|\d{1,2}\.\d)\s*.*$",
+        before_odds,
     )
-    if not sm:
+    if not time_m:
         return None
-    tail = body[sm.end():]
-    tm = re.search(r"(?P<time>\d{1,2}[:：]\d{2}[.．]\d)\s+(?P<odds>\d{1,4}(?:[.．]\d+)?)\s*$", tail)
-    if not tm:
-        return None
-    odds = num(tm.group("odds"))
-    prefix = tail[:tm.start()].strip()
+    time_text = time_m.group("time")
+    prefix = before_odds[:time_m.start()].rstrip()
+
+    # Horse weight and change are the final weight-like token before the finish time.
     wm = re.search(r"(?P<hw>\d{3})(?:\s*(?P<diff>[＋+－−±-]\s*\d{1,2}))?\s*$", prefix)
     if not wm:
         return None
     diff = (wm.group("diff") or "0").replace(" ", "")
     digits = re.sub(r"[^0-9]", "", diff)
     hw_diff = 0 if not digits else (-int(digits) if diff.startswith(("－", "-", "−")) else int(digits))
+
+    # The horse identity/sex/age/assigned weight appear before jockey and other metadata.
+    identity = body[:wm.start()].strip()
+    sm = re.search(
+        r"(?P<horse>.+?)\s*(?P<sex>[牡牝セ])(?P<age>\d{1,2})[^\s\d]*\s*"
+        r"(?P<weight>\d{2}(?:\.\d+)?)\s*$",
+        identity,
+    )
+    if not sm:
+        return None
+
     return {
         "bracket": int(m.group("bracket")),
         "post": int(m.group("post")),
@@ -63,10 +79,9 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
         "weight_carried": num(sm.group("weight")),
         "horse_weight": int(wm.group("hw")),
         "horse_weight_diff": hw_diff,
-        "time": tm.group("time").replace("：", ":").replace("．", "."),
+        "time": time_text.replace("：", ":").replace("．", "."),
         "odds": odds,
     }
-
 
 def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
     lines = [norm(x) for x in chunk.splitlines() if norm(x)]
