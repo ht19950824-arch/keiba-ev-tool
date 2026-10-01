@@ -34,8 +34,8 @@ def links_from_homepage(session):
     # JRA's public DB selector exposes the complete current meeting/day navigation
     # even when the feature-page syutsuba notice still says "scheduled".
     seeds=[
-        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0105202604020920261004%2F1B",
-        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0108202604020920261004%2FF9",
+        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0105202604021120261004%2FC5",
+        "https://www.jra.go.jp/JRADB/accessD.html?CNAME=pw01dde0108202604021120261004%2FA3",
     ]
     seeds += list(dict.fromkeys(x["url"] for x in links))
     for seed in dict.fromkeys(seeds):
