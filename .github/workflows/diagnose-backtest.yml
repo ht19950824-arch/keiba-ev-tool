@@ -9,6 +9,7 @@ on:
       - '.github/workflows/diagnose-backtest.yml'
 permissions:
   contents: read
+  issues: write
 env:
   PYTHONPATH: ${{ github.workspace }}
 jobs:
@@ -22,5 +23,24 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - name: Run strict chronological diagnostics
-        run: python scripts/diagnose_backtest.py --test-year 2026 --min-ev 1.20 --min-odds 3.0
-# retry trigger
+        shell: bash
+        run: |
+          set -o pipefail
+          python scripts/diagnose_backtest.py --test-year 2026 --min-ev 1.20 --min-odds 3.0 2>&1 | tee /tmp/diagnose.txt
+      - name: Post diagnostic result
+        if: ${{ github.event_name == 'issues' && always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f /tmp/diagnose.txt ]; then
+            {
+              echo "## Strict chronological backtest result"
+              echo
+              echo '```text'
+              cat /tmp/diagnose.txt
+              echo '```'
+            } > /tmp/comment.md
+            gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
+          else
+            gh issue comment "${{ github.event.issue.number }}" --body "Diagnostic did not produce output."
+          fi
