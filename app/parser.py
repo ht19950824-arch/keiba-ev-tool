@@ -31,8 +31,9 @@ def extract_text(path: str | Path) -> str:
 
 def _parse_runner_line(line: str) -> dict[str, Any] | None:
     line = norm(line).rstrip()
-    # Current JRA result PDFs normally start with 枠番・馬番.
-    # Some older/test fixtures include explicit 着順 before them.
+    # JRA result PDFs use 枠番・馬番 at the start. Older fixtures may have
+    # 着順・枠番・馬番; only fall back to that form if the normal body cannot
+    # start with a horse name.
     m = re.match(r"^(?P<bracket>[1-8])\s+(?P<post>\d{1,2})\s+(?P<body>.+)$", line)
     if not m:
         return None
@@ -40,16 +41,18 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     bracket = int(m.group("bracket"))
     post = int(m.group("post"))
     body = m.group("body")
-    # Legacy/test fixtures may use 着順・枠・馬番 at the start.
-    # Detect this only when the third token is numeric, avoiding ambiguity for
-    # two-digit horse numbers such as 10-18.
     explicit_finish = None
-    legacy = re.match(r"^(?P<finish>\d{1,2})\s+(?P<legacy_horse>.+)$", body)
-    if legacy and re.match(r"^[^\s]+\s+[牡牝セ]\d", legacy.group("legacy_horse")):
-        explicit_finish = bracket
-        bracket = post
-        post = int(legacy.group("finish"))
-        body = legacy.group("legacy_horse")
+
+    if re.match(r"^\d{1,2}\s+", body):
+        legacy = re.match(
+            r"^(?P<finish>\d{1,2})\s+(?P<horse_post>\d{1,2})\s+(?P<body>.+)$",
+            body,
+        )
+        if legacy:
+            explicit_finish = bracket
+            bracket = post
+            post = int(legacy.group("horse_post"))
+            body = legacy.group("body")
 
     odds_m = re.search(r"(?P<odds>\d{1,4}(?:\.\d+)?)\s*$", body)
     if not odds_m:
@@ -76,21 +79,19 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     digits = re.sub(r"[^0-9]", "", diff)
     hw_diff = 0 if not digits else (-int(digits) if diff.startswith(("－", "-", "−")) else int(digits))
 
-    # The assigned weight is near the start of the row, immediately after sex/age/color.
-    head = body[:]
     sm = re.match(
         r"(?P<horse>.+?)\s+(?P<sex>[牡牝セ])(?P<age>\d{1,2})"
         r"(?P<color>黒鹿|青鹿|栃栗|栗|鹿|芦|青|白)?\s*"
         r"(?P<weight>\d{2}(?:\.\d+)?)\s+",
-        head,
+        body,
     )
     if not sm:
         return None
 
     return {
         "finish": explicit_finish,
-        "bracket": int(m.group("bracket")),
-        "post": int(m.group("post")),
+        "bracket": bracket,
+        "post": post,
         "horse": sm.group("horse").strip(),
         "sex": sm.group("sex"),
         "age": int(sm.group("age")),
@@ -100,7 +101,6 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
         "time": time_text.replace("：", ":").replace("．", "."),
         "odds": odds,
     }
-
 
 def _race_header(chunk: str, year_hint: str) -> dict[str, Any] | None:
     lines = [norm(x) for x in chunk.splitlines() if norm(x)]
