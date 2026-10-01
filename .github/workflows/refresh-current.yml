@@ -52,11 +52,18 @@ jobs:
               f.write("published="+("true" if published else "false")+"\n")
           print("published=",published)
           PY
-      - name: Train and predict current races
+      - name: Train model only when needed
         if: steps.gate.outputs.published == 'true'
         run: |
-          python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+          if [ ! -s data/processed/model/model.joblib ]; then
+            python scripts/train_walkforward.py --test-year 2026 --public-dir web/data
+          else
+            echo "Existing model found; skip full retraining for current-entry refresh."
+          fi
           test -f data/processed/model/model.joblib
+      - name: Predict current races
+        if: steps.gate.outputs.published == 'true'
+        run: |
           python scripts/predict_current.py             --entries data/processed/current_entries.json             --model data/processed/model/model.joblib             --history-glob "data/processed/runners_*.parquet"             --out web/data/current_predictions.json
       - name: Keep public data empty before publication
         if: steps.gate.outputs.published != 'true'
