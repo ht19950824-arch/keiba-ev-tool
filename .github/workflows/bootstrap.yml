@@ -1,5 +1,6 @@
 name: bootstrap-keiba-history
 # auto-rerun after pipeline fix
+# rebuild after validated-root training fix
 on:
   workflow_dispatch:
   issues:
