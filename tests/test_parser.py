@@ -79,3 +79,19 @@ def test_parse_explicit_finish_is_not_inferred_from_row_order():
     assert rows[0]["post"]==4
     assert rows[1]["finish"]==1
     assert rows[1]["post"]==7
+
+
+def test_parse_multiple_real_jra_runner_rows():
+    text='''21001 7月25日 曇良 （2026年1札幌） 第1日 第1競走 3歳未勝利 1，000ｍ
+発走10時00分 （ダート・右）
+7 7 カレンココナ 牝3栗 55 52 ▲小林 美駒 鈴木 隆司氏 小林 真也 日高 高柳 隆男 434－2 58．7 3．8
+5 5 アイビーミャーオ 牝3鹿 55 54 ☆舟山 瑠泉 石坂茂ラボ 小林 真也 浦河 高昭牧場 B444－4 58．8 クビ 3．3
+3 3 カッサンドラ 牝3鹿 55 横山 琉人 加藤 徹氏 高橋 義忠 新冠 大狩部牧場 418－4 59．0 1 2．3
+'''
+    rows=parse_text(text)
+    assert len(rows)==3
+    assert [r["post"] for r in rows]==[7,5,3]
+    assert [r["finish"] for r in rows]==[1,2,3]
+    assert rows[0]["horse"]=="カレンココナ"
+    assert rows[1]["horse_weight"]==444
+    assert rows[2]["odds"]==2.3
