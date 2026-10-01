@@ -46,9 +46,9 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
     explicit_finish = None
     legacy = re.match(r"^(?P<finish>\d{1,2})\s+(?P<legacy_horse>.+)$", body)
     if legacy and re.match(r"^[^\s]+\s+[牡牝セ]\d", legacy.group("legacy_horse")):
-        explicit_finish = int(legacy.group("finish"))
+        explicit_finish = bracket
+        bracket = post
         post = int(legacy.group("finish"))
-        bracket = int(m.group("post"))
         body = legacy.group("legacy_horse")
 
     odds_m = re.search(r"(?P<odds>\d{1,4}(?:\.\d+)?)\s*$", body)
