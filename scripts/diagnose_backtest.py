@@ -40,6 +40,11 @@ def main():
     print("FINISH_1_COUNT",int(win.sum()))
     print("FINISH_1_RATE",float(win.mean()))
     print("UNIQUE_HORSE_RACE",pred[["race_key","horse"]].drop_duplicates().shape[0])
+    race_sizes=pred.groupby("race_key").size()
+    print("RACES_LT5",int((race_sizes < 5).sum()))
+    print("RACES_GE5",int((race_sizes >= 5).sum()))
+    print("RACE_SIZE_MIN",int(race_sizes.min()))
+    print("RACE_SIZE_MEDIAN",float(race_sizes.median()))
     sums=pred.groupby("race_key")["model_win_prob"].sum()
     print("PREDICTION_SUM_MIN",float(sums.min()))
     print("PREDICTION_SUM_MAX",float(sums.max()))
@@ -56,6 +61,8 @@ def main():
     flags=[]
     if len(picks)>=50 and float((pd.to_numeric(picks["finish"],errors="coerce")==1).mean())>0.5:
         flags.append("selected_win_rate_above_50pct")
+    if len(race_sizes) and float((race_sizes < 5).mean()) > 0.10:
+        flags.append("too_many_incomplete_races")
     if float((sums-1).abs().max())>1e-6:
         flags.append("race_probability_not_normalized")
     if len(pred[["race_key","horse"]].drop_duplicates()) != len(pred):
