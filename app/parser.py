@@ -45,7 +45,7 @@ def _parse_runner_line(line: str) -> dict[str, Any] | None:
 
     if re.match(r"^\d{1,2}\s+", body):
         legacy = re.match(
-            r"^(?P<finish>\d{1,2})\s+(?P<horse_post>\d{1,2})\s+(?P<body>.+)$",
+            r"^(?P<horse_post>\d{1,2})\s+(?P<body>.+)$",
             body,
         )
         if legacy:
